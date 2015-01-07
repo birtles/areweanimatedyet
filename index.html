@@ -28,9 +28,13 @@
   <script type="text/jsx">
     var InterfaceBox = React.createClass({
       render: function() {
+        var specLink =
+          'http://w3c.github.io/web-animations/#'
+          + this.props.name.toLowerCase();
         return (
           <div className="interface">
-            <span className="interface-name">{this.props.name}</span>
+            <span className="interface-name"><a
+              href={specLink}>{this.props.name}</a></span>
             {this.props.children}
           </div>
         );
@@ -39,21 +43,27 @@
 
     var Member = React.createClass({
       render: function() {
+        var specLink =
+          [ 'http://w3c.github.io/web-animations/#dom',
+            this.props.interface.toLowerCase(),
+            this.props.name.toLowerCase() ].join('-');
         return (
-          <div className={'member ' + this.props.status}>{this.props.name}</div>
+          <div className={'member ' + this.props.status}><a
+            href={specLink}>{this.props.name}</a></div>
         );
       }
     });
 
     $.getJSON('status.json').then(function(objects) {
-      var renderMember = function(name, member) {
-        return <Member key={name} name={name} status={member.status} />;
+      var renderMember = function(name, member, interfaceName) {
+        return <Member key={name} name={name} interface={interfaceName}
+                       status={member.status} />;
       };
       var renderObject = function(object) {
         var members = object.members;
         return <InterfaceBox name={object.name}>
                 { Object.keys(members).map(function(name) {
-                    return renderMember(name, members[name]);
+                    return renderMember(name, members[name], object.name);
                   })
                 }
                </InterfaceBox>;
