@@ -21,5 +21,15 @@
         Nightly &raquo;</a></p>
     </div>
 
+    <script src="js/vendor/zepto.min.js"></script>
+    <script>
+      $.getJSON('status.json').then(function(objects) {
+        objects.forEach(function(object) {
+          console.log(object.name);
+        });
+      }).fail(function(xhr, error) {
+        $(document.body).append("Failed to load status.json: " + error);
+      });
+    </script>
   </body>
 </html>

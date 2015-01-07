@@ -1,0 +1,13 @@
+[
+  {
+    "name": "AnimationPlayer",
+    "type": "interface",
+    "members": {
+      "source": {
+        "status": "partial",
+        "note": "readonly",
+        "bugs": [ 1049975 ]
+      }
+    }
+  }
+]
