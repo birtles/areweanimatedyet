@@ -20,16 +20,27 @@
         href="https://nightly.mozilla.org/" role="button">Firefox
         Nightly &raquo;</a></p>
     </div>
-
-    <script src="js/vendor/zepto.min.js"></script>
-    <script>
-      $.getJSON('status.json').then(function(objects) {
-        objects.forEach(function(object) {
-          console.log(object.name);
-        });
-      }).fail(function(xhr, error) {
-        $(document.body).append("Failed to load status.json: " + error);
-      });
-    </script>
+    <div class="container" id="interfaces"></div>
   </body>
+  <script src="js/vendor/react.js"></script>
+  <script src="js/vendor/JSXTransformer.js"></script>
+  <script src="js/vendor/zepto.min.js"></script>
+  <script type="text/jsx">
+    var InterfaceBox = React.createClass({
+      render: function() {
+        return (
+          <div className="interface">{this.props.name}</div>
+        );
+      }
+    });
+
+    $.getJSON('status.json').then(function(objects) {
+      objects.forEach(function(object) {
+        React.render(<InterfaceBox name={object.name}/>,
+                     document.getElementById('interfaces'));
+      });
+    }).fail(function(xhr, error) {
+      $(document.body).append('Failed to load status.json: ' + error);
+    });
+  </script>
 </html>
