@@ -29,14 +29,37 @@
     var InterfaceBox = React.createClass({
       render: function() {
         return (
-          <div className="interface">{this.props.name}</div>
+          <div className="interface">
+            <span className="interface-name">{this.props.name}</span>
+            {this.props.children}
+          </div>
+        );
+      }
+    });
+
+    var Member = React.createClass({
+      render: function() {
+        return (
+          <div className={'member ' + this.props.status}>{this.props.name}</div>
         );
       }
     });
 
     $.getJSON('status.json').then(function(objects) {
+      var renderMember = function(name, member) {
+        return <Member key={name} name={name} status={member.status} />;
+      };
+      var renderObject = function(object) {
+        var members = object.members;
+        return <InterfaceBox name={object.name}>
+                { Object.keys(members).map(function(name) {
+                    return renderMember(name, members[name]);
+                  })
+                }
+               </InterfaceBox>;
+      };
       objects.forEach(function(object) {
-        React.render(<InterfaceBox name={object.name}/>,
+        React.render(renderObject(object),
                      document.getElementById('interfaces'));
       });
     }).fail(function(xhr, error) {
