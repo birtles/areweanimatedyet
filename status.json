@@ -7,6 +7,11 @@
         "status": "partial",
         "note": "readonly",
         "bugs": [ 1049975 ]
+      },
+      "timeline": {
+        "status": "partial",
+        "note": "readonly",
+        "bugs": [ 1096776 ]
       }
     }
   }
