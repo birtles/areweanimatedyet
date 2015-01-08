@@ -55,16 +55,18 @@
     });
 
     $.getJSON('status.json').then(function(objects) {
-      var renderMember = function(name, member, interfaceName) {
-        member.interface = interfaceName;
-        member.name = name;
-        return <Member key={name} {...member} />;
-      };
       var renderObject = function(object) {
-        var members = object.members;
+        // Massage members array into something nicer
+        var members = Object.keys(object.members).map(function(name) {
+          var result = object.members[name];
+          result.name = name;
+          result.interface = object.name;
+          return result;
+        });
+
         return <InterfaceBox name={object.name}>
-                { Object.keys(members).map(function(name) {
-                    return renderMember(name, members[name], object.name);
+                { members.map(function(member) {
+                    return <Member key={member.name} {...member} />;
                   })
                 }
                </InterfaceBox>;
