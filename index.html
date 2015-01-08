@@ -54,11 +54,11 @@
         return (
           <div className={'member ' + this.props.status}><a
             href={specLink}>{this.props.name}</a>
-
             {
               this.props.bugs.map(function(bugNum) {
-                return <Bug key={'bug-' + bugNum} number={bugNum} />;
-              })
+                return <Bug key={'bug-' + bugNum} number={bugNum}
+                            member={this.props.name} />;
+              }.bind(this))
             }
           </div>
         );
@@ -68,6 +68,16 @@
     var Bug = React.createClass({
       getInitialState: function() {
         return { loadState: "loading" };
+      },
+      getLoadEventName: function() {
+        return 'bugs-loaded.' + this.props.member + '.' + this.props.number;
+      },
+      componentDidMount: function() {
+        $(document.body).on(this.getLoadEventName(),
+          function() { console.log("Bugs loaded!\n"); });
+      },
+      componentWillUnmount: function() {
+        $(document.body).off(this.getLoadEventName());
       },
       render: function() {
         var bugLink =
