@@ -54,6 +54,7 @@
         return (
           <div className={'member ' + this.props.status}><a
             href={specLink}>{this.props.name}</a>
+
             {
               this.props.bugs.map(function(bugNum) {
                 return <Bug key={'bug-' + bugNum} number={bugNum} />;
@@ -69,8 +70,10 @@
         return { loadState: "loading" };
       },
       render: function() {
-        return (<span className={'bug '
-          + this.state.loadState}>{this.props.number}</span>);
+        var bugLink =
+          'https://bugzilla.mozilla.org/show_bug.cgi?id=' + this.props.number;
+        return (<span className={'bug ' + this.state.loadState}><a
+          href={bugLink}>{this.props.number}</a></span>);
       }
     });
 
