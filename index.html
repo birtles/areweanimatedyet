@@ -35,7 +35,11 @@
           <div className="interface">
             <span className="interface-name"><a
               href={specLink}>{this.props.name}</a></span>
-            {this.props.children}
+            {
+              this.props.members.map(function(member) {
+                return <Member key={member.name} {...member} />;
+              })
+            }
           </div>
         );
       }
@@ -64,12 +68,7 @@
           return result;
         });
 
-        return <InterfaceBox name={object.name}>
-                { members.map(function(member) {
-                    return <Member key={member.name} {...member} />;
-                  })
-                }
-               </InterfaceBox>;
+        return <InterfaceBox name={object.name} members={members} />;
       };
       objects.forEach(function(object) {
         React.render(renderObject(object),
