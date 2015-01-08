@@ -56,8 +56,9 @@
 
     $.getJSON('status.json').then(function(objects) {
       var renderMember = function(name, member, interfaceName) {
-        return <Member key={name} name={name} interface={interfaceName}
-                       status={member.status} />;
+        member.interface = interfaceName;
+        member.name = name;
+        return <Member key={name} {...member} />;
       };
       var renderObject = function(object) {
         var members = object.members;
