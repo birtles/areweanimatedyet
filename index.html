@@ -53,8 +53,24 @@
             this.props.name.toLowerCase() ].join('-');
         return (
           <div className={'member ' + this.props.status}><a
-            href={specLink}>{this.props.name}</a></div>
+            href={specLink}>{this.props.name}</a>
+            {
+              this.props.bugs.map(function(bugNum) {
+                return <Bug key={'bug-' + bugNum} number={bugNum} />;
+              })
+            }
+          </div>
         );
+      }
+    });
+
+    var Bug = React.createClass({
+      getInitialState: function() {
+        return { loadState: "loading" };
+      },
+      render: function() {
+        return (<span className={'bug '
+          + this.state.loadState}>{this.props.number}</span>);
       }
     });
 
