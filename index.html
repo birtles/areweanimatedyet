@@ -26,6 +26,8 @@
   <script src="js/vendor/JSXTransformer.js"></script>
   <script src="js/vendor/zepto.min.js"></script>
   <script type="text/jsx">
+    var pendingBugs = [];
+
     var InterfaceBox = React.createClass({
       render: function() {
         var specLink =
@@ -73,8 +75,9 @@
         return 'bugs-loaded.' + this.props.member + '.' + this.props.number;
       },
       componentDidMount: function() {
+        pendingBugs.push(this.props.number);
         $(document.body).on(this.getLoadEventName(),
-          function() { console.log("Bugs loaded!\n"); });
+          function() { console.log("Bugs loaded!"); });
       },
       componentWillUnmount: function() {
         $(document.body).off(this.getLoadEventName());
@@ -99,12 +102,28 @@
 
         return <InterfaceBox name={object.name} members={members} />;
       };
+
       objects.forEach(function(object) {
         React.render(renderObject(object),
                      document.getElementById('interfaces'));
       });
+
+      fetchBugInfo();
     }).fail(function(xhr, error) {
       $(document.body).append('Failed to load status.json: ' + error);
     });
+
+    function fetchBugInfo() {
+      var query = 'https://bugzilla.mozilla.org/rest/bug?id='
+                  + pendingBugs.map(Number).join(',')
+                  + '&include_fields=id,summary,status,resolution'
+                  + ',last_change_time';
+      $.getJSON(query).then(function(bugs) {
+        pendingBugs = [];
+        $(document.body).trigger('bugs-loaded');
+      }).fail(function(xhr, error) {
+        $(document.body).append('Failed to load bugs: ' + error);
+      });
+    }
   </script>
 </html>
