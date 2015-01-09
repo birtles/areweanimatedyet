@@ -155,7 +155,10 @@
                            + ')'
         };
         var title = titles[this.state.loadState];
-        return (<span className={'bug ' + this.state.loadState}><a
+        var className = this.state.loadState == 'load-complete'
+                      ? this.state.status.toLowerCase()
+                      : this.state.loadState;
+        return (<span className={'bug ' + className}><a
           href={bugLink} title={title}>{this.props.id}</a></span>);
       }
     });
