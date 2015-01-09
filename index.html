@@ -126,17 +126,22 @@
 
     var Bug = React.createClass({
       getInitialState: function() {
-        return { loadState: 'loading' };
+        return { loadState: 'loading bug information' };
       },
       getLoadEventName: function() {
         return 'bugs-loaded.' + this.props.member + '.' + this.props.id;
       },
       componentDidMount: function() {
         bugTracker.getBug(this.props.id).then(function(bug) {
-          console.log(bug);
-        }).fail(function(reason) {
+          this.setState({
+            loadState: 'loaded',
+            status: [bug.status, bug.resolution].join(" ").trim(),
+            summary: bug.summary
+          });
+        }.bind(this)).fail(function(reason) {
           console.warn('Failed to fetch info for bug ' + this.props.id
                        + ' (reason: ' + reason + ')');
+          this.setState({ loadState: 'failed to load bug information' });
         }.bind(this));
       },
       componentWillUnmount: function() {
@@ -145,8 +150,11 @@
       render: function() {
         var bugLink =
           'https://bugzilla.mozilla.org/show_bug.cgi?id=' + this.props.id;
+        var title = this.state.loadState == 'loaded'
+                  ? this.state.summary + ' (' + this.state.status + ')'
+                  : this.state.loadState;
         return (<span className={'bug ' + this.state.loadState}><a
-          href={bugLink}>{this.props.id}</a></span>);
+          href={bugLink} title={title}>{this.props.id}</a></span>);
       }
     });
 

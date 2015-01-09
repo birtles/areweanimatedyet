@@ -12,6 +12,11 @@
         "status": "partial",
         "note": "readonly",
         "bugs": [ 1096776 ]
+      },
+      "ready": {
+        "status": "partial",
+        "note": "not used for pausing yet",
+        "bugs": [ 927349 ]
       }
     }
   }
