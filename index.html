@@ -26,7 +26,64 @@
   <script src="js/vendor/JSXTransformer.js"></script>
   <script src="js/vendor/zepto.min.js"></script>
   <script type="text/jsx">
-    var pendingBugs = [];
+    var BugTracker = function() {
+      var pendingBugs = [];
+      var loadedBugs = [];
+
+      return {
+        fetch: function() {
+          var ids = Object.keys(pendingBugs).map(Number).join(',');
+          var query = 'https://bugzilla.mozilla.org/rest/bug?id=' + ids
+                      + '&include_fields=id,summary,status,resolution'
+                      + ',last_change_time';
+          var xhr = $.getJSON(query);
+          var self = this;
+
+          xhr.then(function(response) {
+
+            response.bugs.forEach(function(bug) {
+              loadedBugs[bug.id] = bug;
+              if (pendingBugs.hasOwnProperty(bug.id)) {
+                pendingBugs[bug.id].forEach(function(deferred) {
+                  deferred.resolve(bug);
+                });
+                delete pendingBugs[bug.id];
+              }
+            });
+
+            for(id in pendingBugs) {
+              pendingBugs[id].forEach(function(deferred) {
+                deferred.reject('Bug not found');
+              });
+            }
+            pendingBugs = [];
+          }).fail(function(xhr, error) {
+            for(id in pendingBugs) {
+              pendingBugs[id].forEach(function(deferred) {
+                deferred.reject(error);
+              });
+            }
+          });
+
+          return xhr;
+        },
+
+        getBug: function(id) {
+          var deferred = $.Deferred();
+          if (loadedBugs.hasOwnProperty(id)) {
+            deferred.resolve(loadedBugs[id]);
+          } else {
+            if (pendingBugs.hasOwnProperty(id)) {
+              pendingBugs[id].push(deferred);
+            } else {
+              pendingBugs[id] = [ deferred ];
+            }
+          }
+          return deferred.promise();
+        }
+      };
+    };
+    var bugTracker = new BugTracker();
 
     var InterfaceBox = React.createClass({
       render: function() {
@@ -58,7 +115,7 @@
             href={specLink}>{this.props.name}</a>
             {
               this.props.bugs.map(function(bugNum) {
-                return <Bug key={'bug-' + bugNum} number={bugNum}
+                return <Bug key={'bug-' + bugNum} id={bugNum}
                             member={this.props.name} />;
               }.bind(this))
             }
@@ -69,24 +126,27 @@
 
     var Bug = React.createClass({
       getInitialState: function() {
-        return { loadState: "loading" };
+        return { loadState: 'loading' };
       },
       getLoadEventName: function() {
-        return 'bugs-loaded.' + this.props.member + '.' + this.props.number;
+        return 'bugs-loaded.' + this.props.member + '.' + this.props.id;
       },
       componentDidMount: function() {
-        pendingBugs.push(this.props.number);
-        $(document.body).on(this.getLoadEventName(),
-          function() { console.log("Bugs loaded!"); });
+        bugTracker.getBug(this.props.id).then(function(bug) {
+          console.log(bug);
+        }).fail(function(reason) {
+          console.warn('Failed to fetch info for bug ' + this.props.id
+                       + ' (reason: ' + reason + ')');
+        }.bind(this));
       },
       componentWillUnmount: function() {
         $(document.body).off(this.getLoadEventName());
       },
       render: function() {
         var bugLink =
-          'https://bugzilla.mozilla.org/show_bug.cgi?id=' + this.props.number;
+          'https://bugzilla.mozilla.org/show_bug.cgi?id=' + this.props.id;
         return (<span className={'bug ' + this.state.loadState}><a
-          href={bugLink}>{this.props.number}</a></span>);
+          href={bugLink}>{this.props.id}</a></span>);
       }
     });
 
@@ -108,22 +168,9 @@
                      document.getElementById('interfaces'));
       });
 
-      fetchBugInfo();
+      return bugTracker.fetch();
     }).fail(function(xhr, error) {
       $(document.body).append('Failed to load status.json: ' + error);
     });
-
-    function fetchBugInfo() {
-      var query = 'https://bugzilla.mozilla.org/rest/bug?id='
-                  + pendingBugs.map(Number).join(',')
-                  + '&include_fields=id,summary,status,resolution'
-                  + ',last_change_time';
-      $.getJSON(query).then(function(bugs) {
-        pendingBugs = [];
-        $(document.body).trigger('bugs-loaded');
-      }).fail(function(xhr, error) {
-        $(document.body).append('Failed to load bugs: ' + error);
-      });
-    }
   </script>
 </html>
