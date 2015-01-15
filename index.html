@@ -138,13 +138,19 @@
             this.props.interface.toLowerCase(),
             this.props.name.toLowerCase() ].join('-');
         return (
-          <div className={'member ' + this.props.status}><a
-            href={'#' + detailsId} aria-controls={detailsId}
-            onClick={this.toggleDetails}>{this.props.name}</a> {
-              this.props.bugs.map(function(bugNum) {
-                return <BugIcon key={'bug-icon-' + bugNum} id={bugNum} />;
-              }.bind(this))
-            }
+          <div className={'member ' + this.props.status}>
+            <div className='member-summary'>
+              <a href={'#' + detailsId} aria-controls={detailsId}
+                onClick={this.toggleDetails}>{this.props.name}</a>
+              {' '}
+              <span className='member-status'>{this.props.status}</span>
+              {' '}
+              {
+                this.props.bugs.map(function(bugNum) {
+                  return <BugIcon key={'bug-icon-' + bugNum} id={bugNum} />;
+                }.bind(this))
+              }
+            </div>
             <MemberDetail {...this.props} specLink={specLink}
               id={detailsId} ref="details"/>
           </div>
