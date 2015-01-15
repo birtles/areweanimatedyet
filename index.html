@@ -115,11 +115,13 @@
                 href={specLink}>{this.props.name}</a>
               </h2>
             </div>
-            {
-              this.props.members.map(function(member) {
-                return <Member key={member.name} {...member} />;
-              })
-            }
+            <ul className="member-list">
+              {
+                this.props.members.map(function(member) {
+                  return <li key={member.name}><Member {...member} /></li>;
+                })
+              }
+            </ul>
           </div>
         );
       }
@@ -199,7 +201,9 @@
             <ul className="bug-list">
               {
                 this.props.bugs.map(function(bugNum) {
-                  return <BugDetail key={'bug-detail-' + bugNum} id={bugNum} />;
+                  return <li key={'bug-detail-' + bugNum}>
+                    <BugDetail id={bugNum} />
+                  </li>;
                 }.bind(this))
               }
             </ul>
@@ -213,24 +217,24 @@
       render: function() {
         if (this.state.loadState == 'loading') {
           return (
-            <li className="loading"><a
+            <span className="bug-detail loading"><a
               href={this.getBugLink()}>{this.props.id}</a> 
-              {' '}Loading bug details&hellip;</li>
+              {' '}Loading bug details&hellip;</span>
           );
         }
         if (this.state.loadState == 'load-failed') {
           return (
-            <li className="load-failed"><a
+            <span className="bug-detail load-failed"><a
               href={this.getBugLink()}>{this.props.id}</a>
-              {' '}(Failed to load bug details)</li>
+              {' '}(Failed to load bug details)</span>
           );
         }
         var status =
           [ this.state.status, this.state.resolution ].join(" ").trim();
         return (
-          <li className={this.state.status}><a
+          <span className={'bug-detail ' + this.state.status}><a
             href={this.getBugLink()}>{this.props.id} {this.state.summary}</a>
-            {' '}<span className="bug-status">({status})</span></li>
+            {' '}<span className="bug-status">({status})</span></span>
         );
       }
     });
