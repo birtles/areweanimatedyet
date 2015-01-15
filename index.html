@@ -92,8 +92,11 @@
           + this.props.name.toLowerCase();
         return (
           <div className="interface">
-            <span className="interface-name"><a
-              href={specLink}>{this.props.name}</a></span>
+            <div className="interface-header">
+              <h2 className="interface-name"><a
+                href={specLink}>{this.props.name}</a>
+              </h2>
+            </div>
             {
               this.props.members.map(function(member) {
                 return <Member key={member.name} {...member} />;
@@ -116,8 +119,7 @@
             this.props.name.toLowerCase() ].join('-');
         return (
           <div className={'member ' + this.props.status}><a
-            href={'#' + detailsId}>{this.props.name}</a>
-            {
+            href={'#' + detailsId}>{this.props.name}</a> {
               this.props.bugs.map(function(bugNum) {
                 return <BugIcon key={'bug-icon-' + bugNum} id={bugNum} />;
               }.bind(this))
@@ -196,7 +198,7 @@
                       ? this.state.status.toLowerCase()
                       : this.state.loadState;
         return (<span className={'bug ' + className}><a
-          href={this.getBugLink()} title={title}>{this.props.id}</a></span>);
+          href={this.getBugLink()} title={title}>({this.props.id})</a></span>);
       }
     });
 
@@ -222,7 +224,7 @@
         return (
           <li className={this.state.status}><a
             href={this.getBugLink()}>{this.props.id} {this.state.summary}</a>
-            <span className="bug-status">({status})</span></li>
+            {' '}<span className="bug-status">({status})</span></li>
         );
       }
     });
