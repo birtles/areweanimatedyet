@@ -198,6 +198,9 @@
             ref="panel">
             <a href={this.props.specLink} className="specLink"
               target="_new">Spec &raquo;</a>
+            { this.props.note
+              ? <div className="notes">Notes: {this.props.note}</div>
+              : null }
             <ul className="bug-list">
               {
                 this.props.bugs.map(function(bugNum) {
