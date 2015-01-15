@@ -85,6 +85,24 @@
     };
     var bugTracker = new BugTracker();
 
+    var BugInfoMixin = {
+      getInitialState: function() {
+        return { loadState: 'loading' };
+      },
+      componentWillMount: function() {
+        bugTracker.getBug(this.props.id).then(function(bug) {
+          this.setState($.extend({ loadState: 'load-complete' }, bug));
+        }.bind(this)).fail(function(reason) {
+          console.warn('Failed to fetch info for bug ' + this.props.id
+                       + ' (reason: ' + reason + ')');
+          this.setState({ loadState: 'load-failed' });
+        }.bind(this));
+      },
+      getBugLink: function() {
+        return 'https://bugzilla.mozilla.org/show_bug.cgi?id=' + this.props.id;
+      }
+    };
+
     var InterfaceBox = React.createClass({
       render: function() {
         var specLink =
@@ -124,14 +142,39 @@
                 return <BugIcon key={'bug-icon-' + bugNum} id={bugNum} />;
               }.bind(this))
             }
-            <MemberDetails {...this.props} specLink={specLink}
+            <MemberDetail {...this.props} specLink={specLink}
               id={detailsId}/>
           </div>
         );
       }
     });
 
-    var MemberDetails = React.createClass({
+    var BugIcon = React.createClass({
+      mixins: [BugInfoMixin],
+      render: function() {
+        if (this.state.loadState != 'load-complete' ||
+            this.state.status == 'RESOLVED') {
+          return null;
+        }
+
+        var titles = {
+          'loading': 'loading bug information',
+          'load-failed': 'failed to load bug information',
+          'load-complete': this.state.summary
+                           + ' (' + [ this.state.status,
+                                      this.state.resolution ].join(" ").trim()
+                           + ')'
+        };
+        var title = titles[this.state.loadState];
+        var className = this.state.loadState == 'load-complete'
+                      ? this.state.status.toLowerCase()
+                      : this.state.loadState;
+        return (<span className={'bug ' + className}><a
+          href={this.getBugLink()} title={title}>({this.props.id})</a></span>);
+      }
+    });
+
+    var MemberDetail = React.createClass({
       getInitialState: function() {
         return { open: false };
       },
@@ -156,49 +199,6 @@
             </ul>
           </div>
         );
-      }
-    });
-
-    var BugInfoMixin = {
-      getInitialState: function() {
-        return { loadState: 'loading' };
-      },
-      componentWillMount: function() {
-        bugTracker.getBug(this.props.id).then(function(bug) {
-          this.setState($.extend({ loadState: 'load-complete' }, bug));
-        }.bind(this)).fail(function(reason) {
-          console.warn('Failed to fetch info for bug ' + this.props.id
-                       + ' (reason: ' + reason + ')');
-          this.setState({ loadState: 'load-failed' });
-        }.bind(this));
-      },
-      getBugLink: function() {
-        return 'https://bugzilla.mozilla.org/show_bug.cgi?id=' + this.props.id;
-      }
-    };
-
-    var BugIcon = React.createClass({
-      mixins: [BugInfoMixin],
-      render: function() {
-        if (this.state.loadState != 'load-complete' ||
-            this.state.status == 'RESOLVED') {
-          return null;
-        }
-
-        var titles = {
-          'loading': 'loading bug information',
-          'load-failed': 'failed to load bug information',
-          'load-complete': this.state.summary
-                           + ' (' + [ this.state.status,
-                                      this.state.resolution ].join(" ").trim()
-                           + ')'
-        };
-        var title = titles[this.state.loadState];
-        var className = this.state.loadState == 'load-complete'
-                      ? this.state.status.toLowerCase()
-                      : this.state.loadState;
-        return (<span className={'bug ' + className}><a
-          href={this.getBugLink()} title={title}>({this.props.id})</a></span>);
       }
     });
 
