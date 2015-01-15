@@ -110,28 +110,58 @@
           [ 'http://w3c.github.io/web-animations/#dom',
             this.props.interface.toLowerCase(),
             this.props.name.toLowerCase() ].join('-');
+        var detailsId =
+          [ 'details',
+            this.props.interface.toLowerCase(),
+            this.props.name.toLowerCase() ].join('-');
         return (
           <div className={'member ' + this.props.status}><a
-            href={specLink}>{this.props.name}</a>
+            href={'#' + detailsId}>{this.props.name}</a>
             {
               this.props.bugs.map(function(bugNum) {
-                return <Bug key={'bug-' + bugNum} id={bugNum}
-                            member={this.props.name} />;
+                return <BugIcon key={'bug-icon-' + bugNum} id={bugNum} />;
               }.bind(this))
             }
+            <MemberDetails {...this.props} specLink={specLink}
+              id={detailsId}/>
           </div>
         );
       }
     });
 
-    var Bug = React.createClass({
+    var MemberDetails = React.createClass({
+      getInitialState: function() {
+        return { open: false };
+      },
+      toggle: function() {
+        this.setState({ open: !this.state.open });
+      },
+      render: function() {
+        var classes = ['details'];
+        if (this.state.open) {
+          classes.push('open');
+        }
+        return (
+          <div id={this.props.id} className={classes.join(' ')}>
+            <a href={this.props.specLink} className="specLink"
+              target="_new">Spec &raquo;</a>
+            <ul className="bug-list">
+              {
+                this.props.bugs.map(function(bugNum) {
+                  return <BugDetail key={'bug-detail-' + bugNum} id={bugNum} />;
+                }.bind(this))
+              }
+            </ul>
+          </div>
+        );
+      }
+    });
+
+    var BugInfoMixin = {
       getInitialState: function() {
         return { loadState: 'loading' };
       },
-      getLoadEventName: function() {
-        return 'bugs-loaded.' + this.props.member + '.' + this.props.id;
-      },
-      componentDidMount: function() {
+      componentWillMount: function() {
         bugTracker.getBug(this.props.id).then(function(bug) {
           this.setState($.extend({ loadState: 'load-complete' }, bug));
         }.bind(this)).fail(function(reason) {
@@ -140,12 +170,19 @@
           this.setState({ loadState: 'load-failed' });
         }.bind(this));
       },
-      componentWillUnmount: function() {
-        $(document.body).off(this.getLoadEventName());
-      },
+      getBugLink: function() {
+        return 'https://bugzilla.mozilla.org/show_bug.cgi?id=' + this.props.id;
+      }
+    };
+
+    var BugIcon = React.createClass({
+      mixins: [BugInfoMixin],
       render: function() {
-        var bugLink =
-          'https://bugzilla.mozilla.org/show_bug.cgi?id=' + this.props.id;
+        if (this.state.loadState != 'load-complete' ||
+            this.state.status == 'RESOLVED') {
+          return null;
+        }
+
         var titles = {
           'loading': 'loading bug information',
           'load-failed': 'failed to load bug information',
@@ -159,7 +196,34 @@
                       ? this.state.status.toLowerCase()
                       : this.state.loadState;
         return (<span className={'bug ' + className}><a
-          href={bugLink} title={title}>{this.props.id}</a></span>);
+          href={this.getBugLink()} title={title}>{this.props.id}</a></span>);
+      }
+    });
+
+    var BugDetail = React.createClass({
+      mixins: [BugInfoMixin],
+      render: function() {
+        if (this.state.loadState == 'loading') {
+          return (
+            <li className="loading"><a
+              href={this.getBugLink()}>{this.props.id}</a> 
+              Loading bug details&hellip;</li>
+          );
+        }
+        if (this.state.loadState == 'load-failed') {
+          return (
+            <li className="load-failed"><a
+              href={this.getBugLink()}>{this.props.id}</a>
+              (Failed to load bug details)</li>
+          );
+        }
+        var status =
+          [ this.state.status, this.state.resolution ].join(" ").trim();
+        return (
+          <li className={this.state.status}><a
+            href={this.getBugLink()}>{this.props.id} {this.state.summary}</a>
+            <span className="bug-status">({status})</span></li>
+        );
       }
     });
 
