@@ -137,15 +137,19 @@
             this.props.name.toLowerCase() ].join('-');
         return (
           <div className={'member ' + this.props.status}><a
-            href={'#' + detailsId}>{this.props.name}</a> {
+            href={'#' + detailsId} aria-controls={detailsId}
+            onClick={this.toggleDetails}>{this.props.name}</a> {
               this.props.bugs.map(function(bugNum) {
                 return <BugIcon key={'bug-icon-' + bugNum} id={bugNum} />;
               }.bind(this))
             }
             <MemberDetail {...this.props} specLink={specLink}
-              id={detailsId}/>
+              id={detailsId} ref="details"/>
           </div>
         );
+      },
+      toggleDetails: function() {
+        this.refs.details.toggle();
       }
     });
 
@@ -179,15 +183,17 @@
         return { open: false };
       },
       toggle: function() {
-        this.setState({ open: !this.state.open });
+        this.setState({ open: !this.state.open }, function() {
+          if (this.state.open) {
+            this.refs.panel.getDOMNode().focus();
+          }
+        });
       },
       render: function() {
-        var classes = ['details'];
-        if (this.state.open) {
-          classes.push('open');
-        }
         return (
-          <div id={this.props.id} className={classes.join(' ')}>
+          <div id={this.props.id} className="details"
+            role="region" tabIndex="-1" aria-expanded={this.state.open}
+            ref="panel">
             <a href={this.props.specLink} className="specLink"
               target="_new">Spec &raquo;</a>
             <ul className="bug-list">
