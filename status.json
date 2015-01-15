@@ -17,6 +17,10 @@
         "status": "partial",
         "note": "not used for pausing yet",
         "bugs": [ 927349 ]
+      },
+      "finished": {
+        "status": "none",
+        "bugs": [ 1074630 ]
       }
     }
   }
