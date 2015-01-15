@@ -17,7 +17,7 @@ gulp.task('browserify', function() {
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source('areweanimatedyet.js'))
     .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.init())
       // This is needed to work around a bug in uglify:
       // https://github.com/terinjokes/gulp-uglify/issues/56
       .pipe(concat('areweanimatedyet.js'))
