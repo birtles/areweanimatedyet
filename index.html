@@ -209,14 +209,14 @@
           return (
             <li className="loading"><a
               href={this.getBugLink()}>{this.props.id}</a> 
-              Loading bug details&hellip;</li>
+              {' '}Loading bug details&hellip;</li>
           );
         }
         if (this.state.loadState == 'load-failed') {
           return (
             <li className="load-failed"><a
               href={this.getBugLink()}>{this.props.id}</a>
-              (Failed to load bug details)</li>
+              {' '}(Failed to load bug details)</li>
           );
         }
         var status =
