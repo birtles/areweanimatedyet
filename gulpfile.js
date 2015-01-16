@@ -1,5 +1,4 @@
-var gulp = require('gulp'),
-    gutil = require('gulp-util');
+var gulp = require('gulp');
 
 gulp.task('browserify', function() {
   var browserify = require('browserify'),
@@ -14,7 +13,6 @@ gulp.task('browserify', function() {
   return browserify('./src/main.jsx')
     .transform(reactify)
     .bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source('areweanimatedyet.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init())
