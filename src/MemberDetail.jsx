@@ -24,15 +24,17 @@ module.exports = React.createClass({
         { this.props.note
           ? <div className="notes">Notes: {this.props.note}</div>
           : null }
-        <ul className="bug-list">
-          {
-            this.props.bugs.map(function(bugNum) {
-              return <li key={'bug-detail-' + bugNum}>
-                <BugDetail id={bugNum} />
-              </li>;
-            }.bind(this))
-          }
-        </ul>
+        { this.props.bugs
+          ? <ul className="bug-list">
+            {
+              this.props.bugs.map(function(bugNum) {
+                return <li key={'bug-detail-' + bugNum}>
+                         <BugDetail id={bugNum} />
+                       </li>;
+              }.bind(this))
+            }
+            </ul>
+          : null }
       </div>
     );
   }

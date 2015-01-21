@@ -20,11 +20,12 @@ module.exports = React.createClass({
             onClick={this.toggleDetails}>{this.props.name}</a>
           {' '}
           <span className='member-status'>{this.props.status}</span>
-          {' '}
-          {
-            this.props.bugs.map(function(bugNum) {
-              return <BugIcon key={'bug-icon-' + bugNum} id={bugNum} />;
-            }.bind(this))
+          { this.props.bugs
+            ? this.props.bugs.map(function(bugNum) {
+                return <BugIcon key={'bug-icon-' + bugNum}
+                                id={bugNum} />;
+              }.bind(this))
+            : null
           }
         </div>
         <MemberDetail {...this.props} specLink={specLink}
