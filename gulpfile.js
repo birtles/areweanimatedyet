@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     transform = require('vinyl-transform');
 
-gulp.task('lint', function() {
+gulp.task('jshint', function() {
   var jshint = require('gulp-jshint'),
       reactify = require('reactify'),
       packageJSON  = require('./package');
@@ -12,6 +12,16 @@ gulp.task('lint', function() {
     .pipe(jshint(packageJSON['jshint-config']))
     .pipe(jshint.reporter('default'));
 });
+
+gulp.task('json-lint', function() {
+  var jsonlint = require("gulp-jsonlint");
+
+  gulp.src("./status.json")
+      .pipe(jsonlint())
+      .pipe(jsonlint.reporter());
+});
+
+gulp.task('lint', ['jshint', 'json-lint']);
 
 gulp.task('browserify', function() {
   var browserify = require('browserify'),
