@@ -1,5 +1,5 @@
 var React = require('react'),
-    InterfaceBox = require('./InterfaceBox.jsx');
+    Interface = require('./Interface.jsx');
 
 module.exports = React.createClass({
   render: function() {
@@ -7,7 +7,7 @@ module.exports = React.createClass({
       <div className="interface-container">
         {
           this.props.interfaces.map(function(interface) {
-            return <InterfaceBox key={interface.name} {...interface}/>;
+            return <Interface key={interface.name} {...interface}/>;
           })
         }
       </div>
