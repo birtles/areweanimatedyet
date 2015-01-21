@@ -6,6 +6,12 @@ var BugTracker = function() {
 
   return {
     fetch: function() {
+      if (!pendingBugs.length) {
+        var result = $.Deferred();
+        result.resolve();
+        return result;
+      }
+
       var ids = Object.keys(pendingBugs).map(Number).join(',');
       var query = 'https://bugzilla.mozilla.org/rest/bug?id=' + ids
                   + '&include_fields=id,summary,status,resolution'
