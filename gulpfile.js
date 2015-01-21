@@ -52,6 +52,20 @@ gulp.task('minify', ['browserify'], function() {
     ;
 });
 
+gulp.task('watch', function() {
+  var watcher = gulp.watch('src/**/*.js?(x)', ['lint', 'minify']);
+  watcher.on('change', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type
+                + ', building...');
+  });
+
+  var jsonWatcher = gulp.watch('*.json', ['json-lint']);
+  jsonWatcher.on('change', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type
+                + ', linting...');
+  });
+});
+
 gulp.task('default', ['lint', 'minify'], function() {
   console.log("Finished building.");
 });
