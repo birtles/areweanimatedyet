@@ -10,7 +10,8 @@ gulp.task('jshint', function() {
   return gulp.src('./src/*.jsx')
     .pipe(transform(reactify))
     .pipe(jshint(packageJSON['jshint-config']))
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('json-lint', function() {
