@@ -19,7 +19,7 @@ module.exports = React.createClass({
       );
     }
     var status =
-      [ this.state.status, this.state.resolution ].join(" ").trim();
+      [ this.state.status, this.state.resolution ].join(' ').trim();
     return (
       <span className={'bug-detail ' + this.state.status}><a
         href={this.getBugLink()}>{this.props.id} {this.state.summary}</a>

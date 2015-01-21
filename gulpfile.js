@@ -2,6 +2,17 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     transform = require('vinyl-transform');
 
+gulp.task('lint', function() {
+  var jshint = require('gulp-jshint'),
+      reactify = require('reactify'),
+      packageJSON  = require('./package');
+
+  return gulp.src('./src/*.jsx')
+    .pipe(transform(reactify))
+    .pipe(jshint(packageJSON['jshint-config']))
+    .pipe(jshint.reporter('default'));
+});
+
 gulp.task('browserify', function() {
   var browserify = require('browserify'),
       reactify = require('reactify');
@@ -31,6 +42,6 @@ gulp.task('minify', ['browserify'], function() {
     ;
 });
 
-gulp.task('default', ['minify'], function() {
+gulp.task('default', ['lint', 'minify'], function() {
   console.log("Finished building.");
 });

@@ -12,10 +12,10 @@ module.exports = React.createClass({
     var titles = {
       'loading': 'loading bug information',
       'load-failed': 'failed to load bug information',
-      'load-complete': this.state.summary
-                       + ' (' + [ this.state.status,
-                                  this.state.resolution ].join(" ").trim()
-                       + ')'
+      'load-complete': this.state.summary +
+                       ' (' + [ this.state.status,
+                                this.state.resolution ].join(" ").trim() +
+                       ')'
     };
     var title = titles[this.state.loadState];
     var className = this.state.loadState == 'load-complete'
