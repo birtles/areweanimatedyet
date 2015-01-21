@@ -1,8 +1,24 @@
 [
   {
+    "name": "AnimationTimeline",
+    "type": "interface",
+    "members": {
+      "currentTime": {
+        "status": "complete"
+      },
+      "play()": {
+      },
+      "getAnimationPlayers()": {
+      }
+    }
+  },
+  {
     "name": "AnimationPlayer",
     "type": "interface",
     "members": {
+      "[Constructor]": {
+        "status": "none"
+      },
       "source": {
         "status": "partial",
         "note": "readonly",
@@ -13,9 +29,26 @@
         "note": "readonly",
         "bugs": [ 1096776 ]
       },
+      "startTime": {
+        "status": "partial",
+        "note": "readonly",
+        "bugs": [ 1073379 ]
+      },
+      "currentTime": {
+        "status": "partial",
+        "note": "readonly",
+        "bugs": [ 1072037 ]
+      },
+      "playbackRate": {
+      },
+      "playState": {
+        "status": "complete",
+        "note": "Doesn't return the 'finished' state",
+        "bugs": [ 1074630 ]
+      },
       "ready": {
         "status": "partial",
-        "note": "not used for pausing yet",
+        "note": "Not used for pausing yet",
         "bugs": [ 927349 ]
       },
       "finished": {
