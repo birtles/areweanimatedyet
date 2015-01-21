@@ -31,6 +31,6 @@ gulp.task('minify', ['browserify'], function() {
     ;
 });
 
-gulp.task('default', ['browserify'], function() {
+gulp.task('default', ['minify'], function() {
   console.log("Finished building.");
 });
