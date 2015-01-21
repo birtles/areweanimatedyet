@@ -44,7 +44,7 @@
       "playState": {
         "status": "complete",
         "note": "Doesn't return the 'finished' state",
-        "bugs": [ 1074630 ]
+        "bugs": [ 1037321, 1074630 ]
       },
       "ready": {
         "status": "partial",
@@ -54,6 +54,24 @@
       "finished": {
         "status": "none",
         "bugs": [ 1074630 ]
+      },
+      "cancel()": {
+        "status": "partial"
+      },
+      "finish()": {
+        "status": "partial",
+        "bugs": [ 1074630 ]
+      },
+      "play()": {
+        "status": "complete",
+        "bugs": [ 1070745 ]
+      },
+      "pause()": {
+        "status": "partial",
+        "note": "Doesn't trigger new ready promise yet",
+        "bugs": [ 1070745, 1109390 ]
+      },
+      "reverse()": {
       }
     }
   }
