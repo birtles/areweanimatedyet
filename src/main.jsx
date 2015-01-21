@@ -14,15 +14,24 @@ $.getJSON('status.json').then(function(interfaces) {
       return result;
     });
 
-    return <InterfaceBox name={interface.name} members={members}/>;
+    return <InterfaceBox name={interface.name} members={members}
+                         key={interface.name}/>;
   };
 
-  interfaces.forEach(function(interface) {
-    React.render(renderInterface(interface),
-                 document.getElementById('interfaces'));
-  });
+  React.render(
+    React.createElement(
+      "container",
+      {},
+      interfaces.map(function(interface) {
+        return renderInterface(interface);
+      })
+    ),
+    document.getElementById('interfaces')
+  );
 
   return BugTracker.fetch();
 }).fail(function(xhr, error) {
   $(document.body).append('Failed to load status.json: ' + error);
+  console.log(xhr.response);
+  console.log(xhr.responseURL);
 });
