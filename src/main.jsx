@@ -1,31 +1,22 @@
 var $ = require('./vendor/zepto.js'),
     React = require('react'),
     BugTracker = require('./BugTracker'),
-    InterfaceBox = require('./InterfaceBox.jsx');
+    InterfaceContainer = require('./InterfaceContainer.jsx');
 
 $.getJSON('status.json').then(function(interfaces) {
-  var renderInterface = function(interface) {
-    // Massage members array into something nicer
-    var members = Object.keys(interface.members).map(function(name) {
+  interfaces.forEach(function(interface) {
+    // Massage members array into something easier to work with
+    interface.members = Object.keys(interface.members).map(function(name) {
       var result = interface.members[name];
       result.name = name;
       result.interface = interface.name;
       result.status = result.status || 'none';
       return result;
     });
-
-    return <InterfaceBox name={interface.name} members={members}
-                         key={interface.name}/>;
-  };
+  });
 
   React.render(
-    React.createElement(
-      "container",
-      {},
-      interfaces.map(function(interface) {
-        return renderInterface(interface);
-      })
-    ),
+    <InterfaceContainer interfaces={interfaces}/>,
     document.getElementById('interfaces')
   );
 
@@ -35,3 +26,4 @@ $.getJSON('status.json').then(function(interfaces) {
   console.log(xhr.response);
   console.log(xhr.responseURL);
 });
+
