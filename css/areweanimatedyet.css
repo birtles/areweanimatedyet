@@ -1,4 +1,4 @@
-container {
+.interface-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -7,7 +7,6 @@ container {
 }
 
 .interface {
-  vertical-align: top;
   display: inline-block;
   background: lightgrey;
   border-radius: 1em;
