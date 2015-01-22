@@ -80,6 +80,7 @@ gulp.task('deploy', function() {
       'areweanimatedyet.*',
       'status.json',
       'humans.txt',
+      'README.md',
       './img/**/*',
       './css/**/*'
     ], {base: "."})
