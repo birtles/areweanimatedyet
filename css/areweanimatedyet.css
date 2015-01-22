@@ -71,7 +71,11 @@ body {
   border-bottom: none;
 }
 
-.member .member-status {
+.member-summary > a {
+  margin-right: 0.4em;
+}
+
+.member-summary .member-status {
   /* Hide text (but not from screen readers) */
   position: absolute !important;
   clip: rect(1px, 1px, 1px, 1px);
@@ -79,6 +83,7 @@ body {
 
 .member-summary .bug {
   margin-left: 0.2em;
+  overflow: visible;
 }
 
 .member-summary .bug a span {
@@ -90,9 +95,13 @@ body {
 .member-summary .bug a::after {
   content: "\0000a0";
   display: inline-block;
-  width: 1em;
+  width: 1.2em;
+  height: calc(1.2em + 3px);
+  font-size: 1em;
   background: url('../img/bug.svg') no-repeat;
   background-position: 0 3px;
+  background-size: 1.2em 1.2em;
+  overflow: visible;
 }
 
 .member .details {
