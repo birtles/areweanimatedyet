@@ -70,3 +70,41 @@ body {
   border-radius: 0 0 1em 1em;
   border-bottom: none;
 }
+
+.member .member-status {
+  /* Hide text (but not from screen readers) */
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.member .notes {
+  font-style: italic;
+  font-size: 0.9em;
+  margin: 0.5em 0;
+}
+
+.bug-list {
+  padding: 0;
+  list-style: none;
+}
+
+.bug-list > li {
+  margin-bottom: 5px;
+}
+.bug-list > li:last-child {
+  margin-bottom: 0;
+}
+
+.bug-detail {
+  font-size: 0.9em;
+  padding-left: 1.4em;
+  display: inline-block;
+  background: url('../img/bug.svg') no-repeat;
+  background-position: 0 3px;
+  background-size: 1.2em;
+}
+
+.bug-detail.RESOLVED {
+  opacity: 0.5;
+  background-image: url('../img/bug-crossed-out.svg');
+}
