@@ -82,7 +82,7 @@ gulp.task('deploy', function() {
       'humans.txt',
       './img/**/*',
       './css/**/*'
-    ])
+    ], {base: "."})
     .pipe(deploy({
       origin: repo,
       message: process.env.COMMIT_MESSAGE || undefined
