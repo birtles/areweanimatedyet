@@ -108,3 +108,18 @@ body {
   opacity: 0.5;
   background-image: url('../img/bug-crossed-out.svg');
 }
+
+.spec-link span {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.spec-link::after {
+  content: "\0000a0";
+  display: inline-block;
+  width: 1em;
+  height: calc(1.2em + 3px);
+  background: url('../img/doc.svg') no-repeat;
+  background-position: 0 3px;
+  background-size: 1em 1.2em;
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	   viewBox="-39 52 80 98"
+     width="100%" height="100%">
+<polygon fill="white" points="37.1,145.9 -34.8,145.9 -34.8,55.5 11,55.5 37.1,81.3 "/>
+<path d="M-33.4,52c-3.1,0-5.6,2.5-5.6,5.6v86.7c0,3.1,2.5,5.7,5.7,5.7h68.7c3.1,0,5.7-2.5,5.7-5.7V80.4L12.5,52H-33.4z M31.5,80H13
+	V61.7L31.5,80z M-32,59H6v28h28v56h-66V59z"/>
+<g>
+	<rect x="-22" y="66" width="18" height="7"/>
+	<rect x="-22" y="80" width="18" height="7"/>
+	<rect x="-22" y="98" width="46" height="7"/>
+	<rect x="-22" y="112" width="46" height="7"/>
+	<rect x="-22" y="126" width="46" height="7"/>
+</g>
+</svg>
