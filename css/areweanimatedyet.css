@@ -26,7 +26,7 @@ body {
 .interface-header {
   text-align: center;
   border-radius: 1em 1em 0 0;
-  background: #ddd;
+  background: linear-gradient(to bottom, #e8e8e8 0%,#ddd 100%);;
   border-bottom: 1px solid lightgrey;
   padding: 0.7em 1em;
 }
