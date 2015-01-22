@@ -1,3 +1,8 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+}
+
 .interface-container {
   display: flex;
   flex-flow: row wrap;
@@ -6,11 +11,62 @@
   align-items: flex-start;
 }
 
+.interface-container a {
+  text-decoration: none;
+  color: #00d;
+}
+
 .interface {
   display: inline-block;
-  background: lightgrey;
-  border-radius: 1em;
-  padding: 1em;
+  padding: 0.6em 0;
   margin: 1em;
   max-width: 300px;
+}
+
+.interface-header {
+  text-align: center;
+  border-radius: 1em 1em 0 0;
+  background: #ddd;
+  border-bottom: 1px solid lightgrey;
+  padding: 0.7em 1em;
+}
+
+.interface-header h2 {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.member-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.member-list > li {
+  margin: 0;
+}
+
+.member-list .member {
+  padding: 0.7em 0.8em;
+}
+
+.member-list .member.complete {
+  background: linear-gradient(to bottom, #c9fcd4 0%,#aef9bd 100%);
+  border-bottom: #62E079 1px solid;
+}
+
+.member-list .member.none {
+  background: linear-gradient(to bottom, #ffcfcc 0%,#FFB5B2 100%);
+  border-bottom: #FF9191 1px solid;
+}
+
+.member-list .member.partial {
+  background: linear-gradient(to bottom, #fff5d3 0%,#ffeeba 100%);
+  border-bottom: #FFDA75 1px solid;
+}
+
+.member-list > li:last-child .member {
+  border-radius: 0 0 1em 1em;
+  border-bottom: none;
 }
