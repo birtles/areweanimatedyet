@@ -70,10 +70,13 @@ gulp.task('watch', function() {
 gulp.task('deploy', function() {
   var deploy = require('gulp-gh-pages');
 
+  console.log(process.env.TRAVIS_REPO_SLUG);
+  console.log(process.env.GH_TOKEN ? "GH_TOKEN is set" : "GH_TOKEN not set!");
   var repo = process.env.GH_TOKEN && process.env.TRAVIS_REPO_SLUG
-           ?  'https://' + process.env.GH_TOKEN + '@github.com/'
-                + process.env.TRAVIS_REPO_SLUG + '.git'
+           ? 'https://' + process.env.GH_TOKEN + '@github.com/'
+               + process.env.TRAVIS_REPO_SLUG + '.git'
            : undefined;
+  console.log("repo.length: " + repo.length);
 
   return gulp.src(
     [ 'index.html',
