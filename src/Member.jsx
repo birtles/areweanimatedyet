@@ -39,7 +39,8 @@ module.exports = React.createClass({
       </div>
     );
   },
-  toggleDetails: function() {
+  toggleDetails: function(evt) {
     this.refs.details.toggle();
+    evt.preventDefault();
   }
 });
