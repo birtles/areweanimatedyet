@@ -7,7 +7,9 @@ module.exports = React.createClass({
     var specLink =
       [ 'http://w3c.github.io/web-animations/#dom',
         this.props.interface.toLowerCase(),
-        this.props.name.toLowerCase() ].join('-');
+        this.props.name == '[Constructor]'
+        ? this.props.interface.toLowerCase()
+        : this.props.name.toLowerCase() ].join('-');
     var detailsId =
       [ 'details',
         this.props.interface.toLowerCase(),
