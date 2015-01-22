@@ -82,7 +82,8 @@ gulp.task('deploy', function() {
       'humans.txt',
       'README.md',
       './img/**/*',
-      './css/**/*'
+      './css/**/*',
+      './fonts/**/*'
     ], {base: "."})
     .pipe(deploy({
       remoteUrl: repo,
