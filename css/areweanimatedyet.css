@@ -77,6 +77,28 @@ body {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
+.member-summary .bug {
+  margin-left: 0.2em;
+}
+
+.member-summary .bug a span {
+  /* Hide text (but not from screen readers) */
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.member-summary .bug a::after {
+  content: "\0000a0";
+  display: inline-block;
+  width: 1em;
+  background: url('../img/bug.svg') no-repeat;
+  background-position: 0 3px;
+}
+
+.member .details {
+  margin-top: 5px;
+}
+
 .member .notes {
   font-style: italic;
   font-size: 0.9em;
@@ -109,10 +131,6 @@ body {
   background-image: url('../img/bug-crossed-out.svg');
 }
 
-.member-summary .spec-link {
-  float: right;
-}
-
 .spec-link span {
   position: absolute !important;
   clip: rect(1px, 1px, 1px, 1px);
@@ -126,4 +144,8 @@ body {
   background: url('../img/doc.svg') no-repeat;
   background-position: 0 3px;
   background-size: 1em 1.2em;
+}
+
+.member-summary .spec-link {
+  float: right;
 }

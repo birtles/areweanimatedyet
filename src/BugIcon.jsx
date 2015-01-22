@@ -22,6 +22,7 @@ module.exports = React.createClass({
                   ? this.state.status.toLowerCase()
                   : this.state.loadState;
     return (<span className={'bug ' + className}><a
-      href={this.getBugLink()} title={title}>({this.props.id})</a></span>);
+      href={this.getBugLink()}
+      title={title}><span>({this.props.id})</span></a></span>);
   }
 });
