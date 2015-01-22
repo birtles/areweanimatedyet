@@ -99,11 +99,11 @@ body {
   margin-top: 5px;
   transition: all 0.2s;
   max-height: 500px;
-  overflow: hidden;
 }
 
 .member .details[aria-expanded=false] {
   max-height: 0;
+  opacity: 0;
 }
 
 .member .notes {
