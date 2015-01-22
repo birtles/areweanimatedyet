@@ -3,6 +3,10 @@ var React = require('react'),
     MemberDetail = require('./MemberDetail.jsx');
 
 module.exports = React.createClass({
+  hasDetails: function() {
+    return this.props.note || this.props.bugs;
+  },
+
   render: function() {
     var specLink =
       [ 'http://w3c.github.io/web-animations/#dom',
@@ -18,8 +22,10 @@ module.exports = React.createClass({
     return (
       <div className={'member ' + this.props.status}>
         <div className='member-summary'>
-          <a href={'#' + detailsId} aria-controls={detailsId}
-            onClick={this.toggleDetails}>{this.props.name}</a>
+          { this.hasDetails()
+            ? <a href={'#' + detailsId} aria-controls={detailsId}
+                onClick={this.toggleDetails}>{this.props.name} &hellip;</a>
+            : this.props.name }
           {' '}
           <span className='member-status'>{this.props.status}</span>
           { this.props.bugs
@@ -35,11 +41,14 @@ module.exports = React.createClass({
                    + ' in the Web Animations spec'}><span>Spec
               &raquo;</span></a>
         </div>
-        <MemberDetail {...this.props}
-          id={detailsId} ref="details"/>
+        { this.hasDetails()
+          ? <MemberDetail {...this.props}
+              id={detailsId} ref="details"/>
+          : null }
       </div>
     );
   },
+
   toggleDetails: function(evt) {
     this.refs.details.toggle();
     evt.preventDefault();
