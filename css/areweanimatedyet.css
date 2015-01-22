@@ -13,7 +13,7 @@ body {
 
 .interface-container a {
   text-decoration: none;
-  color: #00d;
+  color: black;
 }
 
 .interface {
@@ -73,6 +73,7 @@ body {
 
 .member-summary > a {
   margin-right: 0.4em;
+  color: black;
 }
 
 .member-summary .member-status {
