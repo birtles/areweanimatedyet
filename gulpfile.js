@@ -67,6 +67,28 @@ gulp.task('watch', function() {
   });
 });
 
+gulp.task('deploy', function() {
+  var deploy = require('gulp-gh-pages');
+
+  var repo = process.env.GH_TOKEN && process.env.TRAVIS_REPO_SLUG
+           ?  'https://' + process.env.GH_TOKEN + '@github.com/'
+                + process.env.TRAVIS_REPO_SLUG + '.git'
+           : undefined;
+
+  return gulp.src(
+    [ 'index.html',
+      'areweanimatedyet.*',
+      'status.json',
+      'humans.txt',
+      './img/**/*',
+      './css/**/*'
+    ])
+    .pipe(deploy({
+      origin: repo,
+      message: process.env.COMMIT_MESSAGE || undefined
+    }));
+});
+
 gulp.task('default', ['lint', 'minify'], function() {
   console.log("Finished building.");
 });
