@@ -6,9 +6,9 @@
       "currentTime": {
         "status": "complete"
       },
-      "play()": {
+      "play": {
       },
-      "getAnimationPlayers()": {
+      "getAnimationPlayers": {
       }
     }
   },
@@ -55,23 +55,128 @@
         "status": "none",
         "bugs": [ 1074630 ]
       },
-      "cancel()": {
+      "cancel": {
         "status": "partial"
       },
-      "finish()": {
+      "finish": {
         "status": "partial",
         "bugs": [ 1074630 ]
       },
-      "play()": {
+      "play": {
         "status": "complete",
         "bugs": [ 1070745 ]
       },
-      "pause()": {
+      "pause": {
         "status": "partial",
         "note": "Doesn't trigger new ready promise yet",
         "bugs": [ 1070745, 1109390 ]
       },
-      "reverse()": {
+      "reverse": {
+      }
+    }
+  },
+  {
+    "name": "AnimationNode",
+    "type": "interface",
+    "members": {
+      "timing": {
+      },
+      "computedTiming": {
+      }
+    }
+  },
+  {
+    "name": "AnimationTimingReadOnly",
+    "type": "interface",
+    "members": {
+      "delay": {
+      },
+      "endDelay": {
+      },
+      "fill": {
+      },
+      "iterationStart": {
+      },
+      "iterations": {
+      },
+      "duration": {
+      },
+      "direction": {
+      },
+      "easing": {
+      }
+    }
+  },
+  {
+    "name": "Animation",
+    "type": "interface",
+    "members": {
+      "[Constructor]": {
+      },
+      "effect": {
+        "status": "partial",
+        "notes": "Read-only, no support for custom effects"
+      },
+      "target": {
+        "status": "partial",
+        "notes": "Read-only",
+        "bugs": [ 1067701 ]
+      },
+      "clone": {
+      }
+    }
+  },
+  {
+    "name": "Animatable",
+    "type": "interface",
+    "members": {
+      "animate": {
+      },
+      "getAnimationPlayers": {
+        "status": "complete",
+        "notes": "What objects should be returned for CSS Transitions and Animations is not yet specced so this behavior may change.",
+        "bugs": [ 1032573, 1037316, 1074054, 1073396 ]
+      }
+    }
+  },
+  {
+    "name": "AnimationEffect",
+    "type": "interface",
+    "members": {
+      "name": {
+        "status": "partial",
+        "notes": "Read-only",
+        "bugs": [ 1045993 ]
+      },
+      "iterationComposite": {
+      },
+      "composite": {
+      },
+      "clone": {
+      }
+    }
+  },
+  {
+    "name": "KeyframeEffect",
+    "type": "interface",
+    "members": {
+      "[Constructor]": {
+      },
+      "spacing": {
+      },
+      "getFrames": {
+      },
+      "setFrames": {
+      }
+    }
+  },
+  {
+    "name": "Document",
+    "type": "interface",
+    "members": {
+      "timeline": {
+        "status": "complete",
+        "bugs": [ 998246, 1002332, 1036300, 1105098 ]
       }
     }
   }
