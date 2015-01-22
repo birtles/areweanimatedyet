@@ -16,4 +16,4 @@ env:
   - secure: os8Tg4KRBPptRtKjSSGw6928rnKagcSj1YLV6Oo75yZW63fIIScAqccsnU2FMzbRT7lRWjZ+z8KC6TI5CYkDoAJjGHb0F4n/wtbBdU84BeLZN17F197goLCfQhJcE+7KAJ/hkugeVdPOgYIR1BaOzgNZVviX3/u5qi7ewaP1uqc=
 
 script:
-  - ./build/travis.sh
+  - ./travis.sh
