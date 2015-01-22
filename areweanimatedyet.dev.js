@@ -18525,6 +18525,10 @@ var React = require('react'),
     MemberDetail = require('./MemberDetail.jsx');
 
 module.exports = React.createClass({displayName: "exports",
+  hasDetails: function() {
+    return this.props.note || this.props.bugs;
+  },
+
   render: function() {
     var specLink =
       [ 'http://w3c.github.io/web-animations/#dom',
@@ -18540,8 +18544,10 @@ module.exports = React.createClass({displayName: "exports",
     return (
       React.createElement("div", {className: 'member ' + this.props.status}, 
         React.createElement("div", {className: "member-summary"}, 
-          React.createElement("a", {href: '#' + detailsId, "aria-controls": detailsId, 
-            onClick: this.toggleDetails}, this.props.name), 
+           this.hasDetails()
+            ? React.createElement("a", {href: '#' + detailsId, "aria-controls": detailsId, 
+                onClick: this.toggleDetails}, this.props.name, " …")
+            : this.props.name, 
           ' ', 
           React.createElement("span", {className: "member-status"}, this.props.status), 
            this.props.bugs
@@ -18557,11 +18563,14 @@ module.exports = React.createClass({displayName: "exports",
                    + ' in the Web Animations spec'}, React.createElement("span", null, "Spec" + ' ' +
               "»"))
         ), 
-        React.createElement(MemberDetail, React.__spread({},  this.props, 
-          {id: detailsId, ref: "details"}))
+         this.hasDetails()
+          ? React.createElement(MemberDetail, React.__spread({},  this.props, 
+              {id: detailsId, ref: "details"}))
+          : null
       )
     );
   },
+
   toggleDetails: function(evt) {
     this.refs.details.toggle();
     evt.preventDefault();
