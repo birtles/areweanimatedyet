@@ -109,6 +109,10 @@ body {
   background-image: url('../img/bug-crossed-out.svg');
 }
 
+.member-summary .spec-link {
+  float: right;
+}
+
 .spec-link span {
   position: absolute !important;
   clip: rect(1px, 1px, 1px, 1px);

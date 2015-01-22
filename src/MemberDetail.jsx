@@ -19,10 +19,6 @@ module.exports = React.createClass({
       <div id={this.props.id} className="details"
         role="region" tabIndex="-1" aria-expanded={this.state.open}
         ref="panel">
-        <a href={this.props.specLink} className="spec-link"
-          target="_new"
-          title="Look up this member in the Web Animations spec"><span>Spec
-            &raquo;</span></a>
         { this.props.note
           ? <div className="notes">Notes: {this.props.note}</div>
           : null }

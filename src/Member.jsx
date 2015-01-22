@@ -27,8 +27,12 @@ module.exports = React.createClass({
               }.bind(this))
             : null
           }
+          <a href={specLink} className="spec-link"
+            target="_new"
+            title="Look up this member in the Web Animations spec"><span>Spec
+              &raquo;</span></a>
         </div>
-        <MemberDetail {...this.props} specLink={specLink}
+        <MemberDetail {...this.props}
           id={detailsId} ref="details"/>
       </div>
     );
