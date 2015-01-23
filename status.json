@@ -146,7 +146,7 @@
       "name": {
         "status": "partial",
         "notes": "Read-only",
-        "bugs": [ 1045993 ]
+        "bugs": [ 1045993, 1122414 ]
       },
       "iterationComposite": {
       },
