@@ -40,6 +40,8 @@
         "bugs": [ 1072037 ]
       },
       "playbackRate": {
+        "status": "none",
+        "bugs": [ 1127380 ]
       },
       "playState": {
         "status": "complete",
