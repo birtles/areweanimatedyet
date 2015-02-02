@@ -78,7 +78,7 @@
     }
   },
   {
-    "name": "AnimationNode",
+    "name": "AnimationNodeReadonly",
     "type": "interface",
     "members": {
       "timing": {
@@ -110,21 +110,32 @@
     }
   },
   {
+    "name": "AnimationReadonly",
+    "type": "interface",
+    "members": {
+      "[Constructor]": {
+      },
+      "effect": {
+        "status": "complete",
+        "bugs": [ 1045993 ]
+      },
+      "target": {
+        "status": "complete",
+        "bugs": [ 1067701 ]
+      },
+      "clone": {
+      }
+    }
+  },
+  {
     "name": "Animation",
     "type": "interface",
     "members": {
       "[Constructor]": {
       },
       "effect": {
-        "status": "partial",
-        "notes": "Read-only, no support for custom effects"
       },
       "target": {
-        "status": "partial",
-        "notes": "Read-only",
-        "bugs": [ 1067701 ]
-      },
-      "clone": {
       }
     }
   },
@@ -142,19 +153,30 @@
     }
   },
   {
-    "name": "AnimationEffect",
+    "name": "AnimationEffectReadonly",
     "type": "interface",
     "members": {
       "name": {
         "status": "partial",
-        "notes": "Read-only",
         "bugs": [ 1045993, 1122414 ]
       },
       "iterationComposite": {
       },
       "composite": {
+      }
+    }
+  },
+  {
+    "name": "KeyframeEffectReadonly",
+    "type": "interface",
+    "members": {
+      "[Constructor]": {
+      },
+      "spacing": {
       },
       "clone": {
+      },
+      "getFrames": {
       }
     }
   },
@@ -164,9 +186,13 @@
     "members": {
       "[Constructor]": {
       },
-      "spacing": {
+      "name": {
       },
-      "getFrames": {
+      "iterationComposite": {
+      },
+      "composite": {
+      },
+      "spacing": {
       },
       "setFrames": {
       }
