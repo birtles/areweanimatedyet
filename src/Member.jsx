@@ -13,7 +13,8 @@ module.exports = React.createClass({
         this.props.interface.toLowerCase(),
         this.props.name == '[Constructor]'
         ? this.props.interface.toLowerCase()
-        : this.props.name.toLowerCase() ].join('-');
+        : this.props.name.toLowerCase() ].join('-') +
+      (this.props.linkParams || "");
     var detailsId =
       [ 'details',
         this.props.interface.toLowerCase(),
