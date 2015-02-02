@@ -18,7 +18,8 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "status": "none"
+        "status": "none",
+        "linkParams": "source-timeline"
       },
       "source": {
         "status": "partial",
@@ -115,6 +116,7 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
+        "linkParams": "target-effect-timing"
       },
       "effect": {
         "status": "complete",
@@ -133,6 +135,7 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
+        "linkParams": "target-effect-timing"
       },
       "effect": {
       },
@@ -172,6 +175,7 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
+        "linkParams": "frames-options"
       },
       "spacing": {
       },
@@ -186,6 +190,7 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
+        "linkParams": "frames-options"
       },
       "name": {
       },
@@ -196,6 +201,7 @@
       "spacing": {
       },
       "setFrames": {
+        "linkParams": "frames"
       }
     }
   },
