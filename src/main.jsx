@@ -10,7 +10,6 @@ $.getJSON('status.json').then(function(interfaces) {
       var result = interface.members[name];
       result.name = name;
       result.interface = interface.name;
-      result.status = result.status || 'none';
       return result;
     });
   });
