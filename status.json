@@ -4,8 +4,10 @@
     "type": "interface",
     "members": {
       "currentTime": {
-        "status": "complete",
-        "bugs": [ 998246, 1002332 ]
+        "firefox": {
+          "status": "complete",
+          "bugs": [ 998246, 1002332 ]
+        }
       },
       "play": {
       },
@@ -18,62 +20,83 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "status": "none",
         "linkParams": "source-timeline"
       },
       "source": {
-        "status": "partial",
-        "note": "readonly",
-        "bugs": [ 1049975 ]
+        "firefox": {
+          "status": "partial",
+          "note": "readonly",
+          "bugs": [ 1049975 ]
+        }
       },
       "timeline": {
-        "status": "partial",
-        "note": "readonly",
-        "bugs": [ 1096776 ]
+        "firefox": {
+          "status": "partial",
+          "note": "readonly",
+          "bugs": [ 1096776 ]
+        }
       },
       "startTime": {
-        "status": "partial",
-        "note": "readonly",
-        "bugs": [ 1073379 ]
+        "firefox": {
+          "status": "partial",
+          "note": "readonly",
+          "bugs": [ 1073379 ]
+        }
       },
       "currentTime": {
-        "status": "partial",
-        "note": "readonly",
-        "bugs": [ 1072037 ]
+        "firefox": {
+          "status": "partial",
+          "note": "readonly",
+          "bugs": [ 1072037 ]
+        }
       },
       "playbackRate": {
-        "status": "none",
-        "bugs": [ 1127380 ]
+        "firefox": {
+          "bugs": [ 1127380 ]
+        }
       },
       "playState": {
-        "status": "complete",
-        "note": "Doesn't return the 'finished' state",
-        "bugs": [ 1037321, 1074630 ]
+        "firefox": {
+          "status": "complete",
+          "note": "Doesn't return the 'finished' state",
+          "bugs": [ 1037321, 1074630 ]
+        }
       },
       "ready": {
-        "status": "partial",
-        "note": "Not used for pausing yet",
-        "bugs": [ 927349 ]
+        "firefox": {
+          "status": "partial",
+          "note": "Not used for pausing yet",
+          "bugs": [ 927349 ]
+        }
       },
       "finished": {
-        "status": "none",
-        "bugs": [ 1074630 ]
+        "firefox": {
+          "bugs": [ 1074630 ]
+        }
       },
       "cancel": {
-        "status": "partial"
+        "firefox": {
+          "status": "partial"
+        }
       },
       "finish": {
-        "status": "partial",
-        "bugs": [ 1074630 ]
+        "firefox": {
+          "status": "partial",
+          "bugs": [ 1074630 ]
+        }
       },
       "play": {
-        "status": "complete",
-        "bugs": [ 1070745 ]
+        "firefox": {
+          "status": "complete",
+          "bugs": [ 1070745 ]
+        }
       },
       "pause": {
-        "status": "partial",
-        "note": "Doesn't trigger new ready promise yet",
-        "bugs": [ 1070745, 1109390 ]
+        "firefox": {
+          "status": "partial",
+          "note": "Doesn't trigger new ready promise yet",
+          "bugs": [ 1070745, 1109390 ]
+        }
       },
       "reverse": {
       }
@@ -119,12 +142,16 @@
         "linkParams": "target-effect-timing"
       },
       "effect": {
-        "status": "complete",
-        "bugs": [ 1045993 ]
+        "firefox": {
+          "status": "complete",
+          "bugs": [ 1045993 ]
+        }
       },
       "target": {
-        "status": "complete",
-        "bugs": [ 1067701 ]
+        "firefox": {
+          "status": "complete",
+          "bugs": [ 1067701 ]
+        }
       },
       "clone": {
       }
@@ -150,9 +177,11 @@
       "animate": {
       },
       "getAnimationPlayers": {
-        "status": "complete",
-        "notes": "What objects should be returned for CSS Transitions and Animations is not yet specced so this behavior may change.",
-        "bugs": [ 1032573, 1037316, 1074054, 1073396 ]
+        "firefox": {
+          "status": "complete",
+          "notes": "What objects should be returned for CSS Transitions and Animations is not yet specced so this behavior may change.",
+          "bugs": [ 1032573, 1037316, 1074054, 1073396 ]
+        }
       }
     }
   },
@@ -161,8 +190,10 @@
     "type": "interface",
     "members": {
       "name": {
-        "status": "partial",
-        "bugs": [ 1045993, 1122414 ]
+        "firefox": {
+          "status": "partial",
+          "bugs": [ 1045993, 1122414 ]
+        }
       },
       "iterationComposite": {
       },
@@ -210,8 +241,10 @@
     "type": "interface",
     "members": {
       "timeline": {
-        "status": "complete",
-        "bugs": [ 998246, 1002332, 1036300, 1105098 ]
+        "firefox": {
+          "status": "complete",
+          "bugs": [ 998246, 1002332, 1036300, 1105098 ]
+        }
       }
     }
   }

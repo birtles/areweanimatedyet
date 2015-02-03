@@ -11,7 +11,6 @@ $.getJSON('status.json').then(function(interfaces) {
       var result = interface.members[name];
       result.name = name;
       result.interface = interface.name;
-      result.status = result.status || 'none';
       return result;
     });
   });
@@ -18525,8 +18524,12 @@ var React = require('react'),
     MemberDetail = require('./MemberDetail.jsx');
 
 module.exports = React.createClass({displayName: "exports",
+  implementation: function() {
+    // FIXME: Parameterize by implementer.
+    return (this.props && this.props.firefox) || {};
+  },
   hasDetails: function() {
-    return this.props.note || this.props.bugs;
+    return this.implementation().note || this.implementation().bugs;
   },
 
   render: function() {
@@ -18543,16 +18546,16 @@ module.exports = React.createClass({displayName: "exports",
         this.props.name.toLowerCase() ].join('-');
 
     return (
-      React.createElement("div", {className: 'member ' + this.props.status}, 
+      React.createElement("div", {className: 'member ' + (this.implementation().status || 'none')}, 
         React.createElement("div", {className: "member-summary"}, 
            this.hasDetails()
             ? React.createElement("a", {href: '#' + detailsId, "aria-controls": detailsId, 
                 onClick: this.toggleDetails}, this.props.name, " …")
             : this.props.name, 
           ' ', 
-          React.createElement("span", {className: "member-status"}, this.props.status), 
-           this.props.bugs
-            ? this.props.bugs.map(function(bugNum) {
+          React.createElement("span", {className: "member-status"}, this.implementation().status), 
+           this.implementation().bugs
+            ? this.implementation().bugs.map(function(bugNum) {
                 return React.createElement(BugIcon, {key: 'bug-icon-' + bugNum, 
                                 id: bugNum});
               }.bind(this))
@@ -18565,7 +18568,7 @@ module.exports = React.createClass({displayName: "exports",
               "»"))
         ), 
          this.hasDetails()
-          ? React.createElement(MemberDetail, React.__spread({},  this.props, 
+          ? React.createElement(MemberDetail, React.__spread({},  this.implementation(), 
               {id: detailsId, ref: "details"}))
           : null
       )
