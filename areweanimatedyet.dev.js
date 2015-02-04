@@ -18479,7 +18479,7 @@ var React = require('react'),
 module.exports = React.createClass({displayName: "exports",
   render: function() {
     var specLink =
-      'http://w3c.github.io/web-animations/#'
+      'https://w3c.github.io/web-animations/#'
       + this.props.name.toLowerCase();
     return (
       React.createElement("div", {className: "interface"}, 
@@ -18534,7 +18534,7 @@ module.exports = React.createClass({displayName: "exports",
 
   render: function() {
     var specLink =
-      [ 'http://w3c.github.io/web-animations/#dom',
+      [ 'https://w3c.github.io/web-animations/#dom',
         this.props.interface.toLowerCase(),
         this.props.name == '[Constructor]'
         ? this.props.interface.toLowerCase()
