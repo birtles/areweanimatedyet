@@ -4,7 +4,7 @@ var React = require('react'),
 module.exports = React.createClass({
   render: function() {
     var specLink =
-      'http://w3c.github.io/web-animations/#'
+      'https://w3c.github.io/web-animations/#'
       + this.props.name.toLowerCase();
     return (
       <div className="interface">

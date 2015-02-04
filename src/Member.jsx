@@ -13,7 +13,7 @@ module.exports = React.createClass({
 
   render: function() {
     var specLink =
-      [ 'http://w3c.github.io/web-animations/#dom',
+      [ 'https://w3c.github.io/web-animations/#dom',
         this.props.interface.toLowerCase(),
         this.props.name == '[Constructor]'
         ? this.props.interface.toLowerCase()
