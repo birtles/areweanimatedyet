@@ -180,7 +180,7 @@
         "firefox": {
           "status": "complete",
           "notes": "What objects should be returned for CSS Transitions and Animations is not yet specced so this behavior may change.",
-          "bugs": [ 1032573, 1037316, 1074054, 1073396 ]
+          "bugs": [ 1032573, 1037316, 1074054, 1073396, 1132782 ]
         }
       }
     }
