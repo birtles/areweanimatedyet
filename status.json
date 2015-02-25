@@ -38,8 +38,7 @@
       },
       "startTime": {
         "firefox": {
-          "status": "partial",
-          "note": "readonly",
+          "status": "complete",
           "bugs": [ 1073379 ]
         }
       },
