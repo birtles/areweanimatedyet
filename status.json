@@ -11,12 +11,12 @@
       },
       "play": {
       },
-      "getAnimationPlayers": {
+      "getAnimations": {
       }
     }
   },
   {
-    "name": "AnimationPlayer",
+    "name": "Animation",
     "type": "interface",
     "members": {
       "[Constructor]": {
@@ -157,7 +157,7 @@
     }
   },
   {
-    "name": "Animation",
+    "name": "KeyframeEffect",
     "type": "interface",
     "members": {
       "[Constructor]": {
@@ -175,7 +175,7 @@
     "members": {
       "animate": {
       },
-      "getAnimationPlayers": {
+      "getAnimations": {
         "firefox": {
           "status": "complete",
           "notes": "What objects should be returned for CSS Transitions and Animations is not yet specced so this behavior may change.",
