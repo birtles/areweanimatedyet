@@ -70,6 +70,7 @@
       },
       "finished": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1074630 ]
         }
       },
