@@ -50,6 +50,7 @@
       },
       "playbackRate": {
         "firefox": {
+          "status": "partial",
           "bugs": [ 1127380 ]
         }
       },
