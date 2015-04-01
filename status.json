@@ -81,7 +81,7 @@
       "finish": {
         "firefox": {
           "status": "partial",
-          "bugs": [ 1074630 ]
+          "bugs": [ 1150064 ]
         }
       },
       "play": {
