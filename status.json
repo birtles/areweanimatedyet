@@ -63,8 +63,7 @@
       },
       "ready": {
         "firefox": {
-          "status": "partial",
-          "note": "Not used for pausing yet",
+          "status": "complete",
           "bugs": [ 927349 ]
         }
       },
@@ -93,8 +92,7 @@
       },
       "pause": {
         "firefox": {
-          "status": "partial",
-          "note": "Doesn't trigger new ready promise yet",
+          "status": "complete",
           "bugs": [ 1070745, 1109390 ]
         }
       },
