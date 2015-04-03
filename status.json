@@ -1,6 +1,6 @@
 [
   {
-    "name": "AnimationTimeline",
+    "name": "DocumentTimeline",
     "type": "interface",
     "members": {
       "currentTime": {
@@ -12,6 +12,9 @@
       "play": {
       },
       "getAnimations": {
+        "firefox": {
+          "bugs": [ 1150810 ]
+        }
       }
     }
   },
