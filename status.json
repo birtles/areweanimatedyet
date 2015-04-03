@@ -74,7 +74,7 @@
       },
       "cancel": {
         "firefox": {
-          "status": "partial"
+          "bugs": [ 1150807 ]
         }
       },
       "finish": {
@@ -96,6 +96,9 @@
         }
       },
       "reverse": {
+        "firefox": {
+          "bugs": [ 1150808 ]
+        }
       }
     }
   },
