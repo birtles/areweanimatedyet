@@ -82,7 +82,6 @@
       },
       "finish": {
         "firefox": {
-          "status": "partial",
           "bugs": [ 1150064 ]
         }
       },
