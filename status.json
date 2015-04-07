@@ -1,6 +1,6 @@
 [
   {
-    "name": "DocumentTimeline",
+    "name": "AnimationTimeline",
     "type": "interface",
     "members": {
       "currentTime": {
@@ -19,13 +19,22 @@
     }
   },
   {
+    "name": "DocumentTimeline",
+    "type": "interface",
+    "members": {
+      "[Constructor]": {
+        "linkParams": "origintime"
+      }
+    }
+  },
+  {
     "name": "Animation",
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "linkParams": "source-timeline"
+        "linkParams": "effect-timeline"
       },
-      "source": {
+      "effect": {
         "firefox": {
           "status": "partial",
           "note": "readonly",
@@ -105,7 +114,7 @@
     }
   },
   {
-    "name": "AnimationNodeReadonly",
+    "name": "AnimationEffectReadonly",
     "type": "interface",
     "members": {
       "timing": {
@@ -115,7 +124,7 @@
     }
   },
   {
-    "name": "AnimationTimingReadonly",
+    "name": "AnimationEffectTimingReadonly",
     "type": "interface",
     "members": {
       "delay": {
@@ -137,69 +146,24 @@
     }
   },
   {
-    "name": "AnimationReadonly",
+    "name": "AnimationEffectTiming",
     "type": "interface",
     "members": {
-      "[Constructor]": {
-        "linkParams": "target-effect-timing"
+      "delay": {
       },
-      "effect": {
-        "firefox": {
-          "status": "complete",
-          "bugs": [ 1045993 ]
-        }
+      "endDelay": {
       },
-      "target": {
-        "firefox": {
-          "status": "complete",
-          "bugs": [ 1067701 ]
-        }
+      "fill": {
       },
-      "clone": {
-      }
-    }
-  },
-  {
-    "name": "KeyframeEffect",
-    "type": "interface",
-    "members": {
-      "[Constructor]": {
-        "linkParams": "target-effect-timing"
+      "iterationStart": {
       },
-      "effect": {
+      "iterations": {
       },
-      "target": {
-      }
-    }
-  },
-  {
-    "name": "Animatable",
-    "type": "interface",
-    "members": {
-      "animate": {
+      "duration": {
       },
-      "getAnimations": {
-        "firefox": {
-          "status": "complete",
-          "notes": "What objects should be returned for CSS Transitions and Animations is not yet specced so this behavior may change.",
-          "bugs": [ 1032573, 1037316, 1074054, 1073396, 1132782 ]
-        }
-      }
-    }
-  },
-  {
-    "name": "AnimationEffectReadonly",
-    "type": "interface",
-    "members": {
-      "name": {
-        "firefox": {
-          "status": "partial",
-          "bugs": [ 1045993, 1122414 ]
-        }
+      "direction": {
       },
-      "iterationComposite": {
-      },
-      "composite": {
+      "easing": {
       }
     }
   },
@@ -208,7 +172,23 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "linkParams": "frames-options"
+        "linkParams": "target-frames-options"
+      },
+      "target": {
+        "firefox": {
+          "status": "complete",
+          "bugs": [ 1067701 ]
+        }
+      },
+      "name": {
+        "firefox": {
+          "status": "complete",
+          "bugs": [ 1045993, 1122414 ]
+        }
+      },
+      "iterationComposite": {
+      },
+      "composite": {
       },
       "spacing": {
       },
@@ -223,7 +203,9 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "linkParams": "frames-options"
+        "linkParams": "target-frames-options"
+      },
+      "target": {
       },
       "name": {
       },
@@ -235,6 +217,22 @@
       },
       "setFrames": {
         "linkParams": "frames"
+      }
+    }
+  },
+  {
+    "name": "Animatable",
+    "type": "interface",
+    "members": {
+      "animate": {
+        "linkParams": "frames-options"
+      },
+      "getAnimations": {
+        "firefox": {
+          "status": "complete",
+          "notes": "What objects should be returned for CSS Transitions and Animations is not yet specced so this behavior may change.",
+          "bugs": [ 1032573, 1037316, 1074054, 1073396, 1132782 ]
+        }
       }
     }
   },
