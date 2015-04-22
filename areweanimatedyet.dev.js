@@ -18625,7 +18625,7 @@ module.exports = React.createClass({displayName: "exports",
 
 },{"./BugDetail.jsx":149,"react":148}],157:[function(require,module,exports){
 (function (global){
-;__browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
+; var __browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 // Zepto 1.1.4 (generated with Zepto Builder) - zepto event ajax ie callbacks deferred - zeptojs.com/license 
 //     Zepto.js
 //     (c) 2010-2015 Thomas Fuchs
