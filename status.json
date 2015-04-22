@@ -57,7 +57,7 @@
       "currentTime": {
         "firefox": {
           "status": "complete",
-          "bugs": [ 1072037, 1151695 ]
+          "bugs": [ 1072037, 1151695, 1157111 ]
         }
       },
       "playbackRate": {
