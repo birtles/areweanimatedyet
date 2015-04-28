@@ -117,7 +117,7 @@
     }
   },
   {
-    "name": "AnimationEffectReadonly",
+    "name": "AnimationEffectReadOnly",
     "type": "interface",
     "members": {
       "timing": {
@@ -127,7 +127,7 @@
     }
   },
   {
-    "name": "AnimationEffectTimingReadonly",
+    "name": "AnimationEffectTimingReadOnly",
     "type": "interface",
     "members": {
       "delay": {
@@ -171,7 +171,7 @@
     }
   },
   {
-    "name": "KeyframeEffectReadonly",
+    "name": "KeyframeEffectReadOnly",
     "type": "interface",
     "members": {
       "[Constructor]": {
