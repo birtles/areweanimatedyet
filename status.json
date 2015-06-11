@@ -9,8 +9,6 @@
           "bugs": [ 998246, 1002332 ]
         }
       },
-      "play": {
-      },
       "getAnimations": {
         "firefox": {
           "bugs": [ 1150810 ]
