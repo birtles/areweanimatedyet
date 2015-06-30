@@ -30,7 +30,10 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "linkParams": "effect-timeline"
+        "linkParams": "effect-timeline",
+        "firefox": {
+          "bugs": [ 1096774 ]
+        }
       },
       "effect": {
         "firefox": {
@@ -43,7 +46,7 @@
         "firefox": {
           "status": "partial",
           "note": "readonly",
-          "bugs": [ 1096776 ]
+          "bugs": [ 1096776, 1178662, 1178666 ]
         }
       },
       "startTime": {
@@ -80,7 +83,17 @@
       "finished": {
         "firefox": {
           "status": "complete",
-          "bugs": [ 1074630 ]
+          "bugs": [ 1074630, 1178665 ]
+        }
+      },
+      "oncancel": {
+        "firefox": {
+          "bugs": [ 1178664 ]
+        }
+      },
+      "onfinish": {
+        "firefox": {
+          "bugs": [ 1178664 ]
         }
       },
       "cancel": {
