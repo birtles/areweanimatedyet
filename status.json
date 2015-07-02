@@ -35,6 +35,8 @@
           "bugs": [ 1096774 ]
         }
       },
+      "id" {
+      },
       "effect": {
         "firefox": {
           "status": "partial",
@@ -194,12 +196,6 @@
           "bugs": [ 1067701 ]
         }
       },
-      "name": {
-        "firefox": {
-          "status": "complete",
-          "bugs": [ 1045993, 1122414 ]
-        }
-      },
       "iterationComposite": {
       },
       "composite": {
@@ -223,8 +219,6 @@
         "firefox": {
           "bugs": [ 1067769 ]
         }
-      },
-      "name": {
       },
       "iterationComposite": {
       },
