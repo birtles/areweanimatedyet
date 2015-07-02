@@ -36,6 +36,9 @@
         }
       },
       "id": {
+        "firefox": {
+          "bugs": [ 1179627 ]
+        }
       },
       "effect": {
         "firefox": {
