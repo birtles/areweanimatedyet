@@ -68,8 +68,8 @@
       },
       "playbackRate": {
         "firefox": {
-          "status": "complete",
-          "bugs": [ 1127380, 1175751 ]
+          "status": "partial",
+          "bugs": [ 1127380, 1175751, 1181905 ]
         }
       },
       "playState": {
