@@ -11,7 +11,9 @@
       },
       "getAnimations": {
         "firefox": {
-          "bugs": [ 1150810 ]
+          "status": "partial",
+          "note": "Animations on pseudo-elements are not returned",
+          "bugs": [ 1150810, 1174575 ]
         }
       }
     }
