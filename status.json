@@ -70,7 +70,7 @@
       },
       "playbackRate": {
         "firefox": {
-          "status": "partial",
+          "status": "complete",
           "bugs": [ 1127380, 1175751, 1181905 ]
         }
       },
@@ -128,6 +128,7 @@
       },
       "reverse": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1150808 ]
         }
       }
