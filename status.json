@@ -218,7 +218,6 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "linkParams": "target-frames-options"
       },
       "target": {
         "firefox": {
@@ -232,7 +231,6 @@
       "spacing": {
       },
       "setFrames": {
-        "linkParams": "frames"
       }
     }
   },
