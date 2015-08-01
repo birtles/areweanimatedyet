@@ -94,11 +94,13 @@
       },
       "oncancel": {
         "firefox": {
+          "status": "complete",          
           "bugs": [ 1178664 ]
         }
       },
       "onfinish": {
         "firefox": {
+          "status": "complete",          
           "bugs": [ 1178664 ]
         }
       },
