@@ -212,6 +212,9 @@
       "clone": {
       },
       "getFrames": {
+        "firefox": {
+          "bugs": [ 1198708 ]
+        }
       }
     }
   },
@@ -220,6 +223,9 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
+        "firefox": {
+          "bugs": [ 1198705 ]
+        }
       },
       "target": {
         "firefox": {
