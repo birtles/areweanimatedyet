@@ -23,7 +23,6 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "linkParams": "origintime"
       }
     }
   },
@@ -32,7 +31,6 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "linkParams": "effect-timeline",
         "firefox": {
           "bugs": [ 1096774 ]
         }
@@ -195,7 +193,6 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
-        "linkParams": "target-frames-options"
       },
       "target": {
         "firefox": {
@@ -248,7 +245,6 @@
     "type": "interface",
     "members": {
       "animate": {
-        "linkParams": "frames-options",
         "firefox": {
           "bugs": [ 1096773, 1151731 ]
         }
