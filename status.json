@@ -225,7 +225,7 @@
     "members": {
       "[Constructor]": {
         "firefox": {
-          "bugs": [ 1198705 ]
+          "bugs": [ 1208951, 1198705 ]
         }
       },
       "target": {
@@ -248,7 +248,10 @@
     "type": "interface",
     "members": {
       "animate": {
-        "linkParams": "frames-options"
+        "linkParams": "frames-options",
+        "firefox": {
+          "bugs": [ 1096773, 1151731 ]
+        }
       },
       "getAnimations": {
         "firefox": {
