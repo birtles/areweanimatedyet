@@ -193,6 +193,9 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
+        "firefox": {
+          "bugs": [ 1208951 ]
+        }
       },
       "target": {
         "firefox": {
@@ -222,7 +225,7 @@
     "members": {
       "[Constructor]": {
         "firefox": {
-          "bugs": [ 1208951, 1198705 ]
+          "bugs": [ 1211783, 1198705 ]
         }
       },
       "target": {
