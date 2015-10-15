@@ -141,6 +141,9 @@
       "timing": {
       },
       "computedTiming": {
+        "firefox": {
+          "bugs": [ 1108055 ]
+        }
       }
     }
   },
