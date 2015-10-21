@@ -140,7 +140,7 @@
     "members": {
       "timing": {
       },
-      "computedTiming": {
+      "getComputedTiming": {
         "firefox": {
           "bugs": [ 1108055 ]
         }
@@ -197,7 +197,7 @@
     "members": {
       "[Constructor]": {
         "firefox": {
-          "bugs": [ 1208951 ]
+          "bugs": [ 1208951, 1215406, 1216842, 1216843, 1216844 ]
         }
       },
       "target": {
