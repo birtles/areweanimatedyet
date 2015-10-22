@@ -123,7 +123,8 @@
       "pause": {
         "firefox": {
           "status": "complete",
-          "bugs": [ 1070745, 1109390 ]
+          "note": "Pausing when finishing is buggy (bug 1216846); possible spec issue"
+          "bugs": [ 1070745, 1109390, 1216846 ]
         }
       },
       "reverse": {
