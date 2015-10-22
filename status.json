@@ -216,8 +216,8 @@
       },
       "getFrames": {
         "firefox": {
-          "status": "complete",
-          "bugs": [ 1198708 ]
+          "status": "partial",
+          "bugs": [ 1198708, 1217252 ]
         }
       }
     }
