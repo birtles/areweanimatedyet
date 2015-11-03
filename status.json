@@ -143,6 +143,7 @@
       },
       "getComputedTiming": {
         "firefox": {
+          "status": "complete",          
           "bugs": [ 1108055 ]
         }
       }
