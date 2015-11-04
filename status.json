@@ -92,13 +92,13 @@
       },
       "oncancel": {
         "firefox": {
-          "status": "complete",          
+          "status": "complete",
           "bugs": [ 1178664 ]
         }
       },
       "onfinish": {
         "firefox": {
-          "status": "complete",          
+          "status": "complete",
           "bugs": [ 1178664 ]
         }
       },
@@ -140,10 +140,13 @@
     "type": "interface",
     "members": {
       "timing": {
+        "firefox": {
+          "bugs": [ 1214536 ]
+        }
       },
       "getComputedTiming": {
         "firefox": {
-          "status": "complete",          
+          "status": "complete",
           "bugs": [ 1108055 ]
         }
       }
