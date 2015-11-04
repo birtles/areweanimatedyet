@@ -199,6 +199,7 @@
     "members": {
       "[Constructor]": {
         "firefox": {
+          "status": "partial",
           "bugs": [ 1208951, 1215406, 1216842, 1216843, 1216844 ]
         }
       },
