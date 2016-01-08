@@ -8,13 +8,6 @@
           "status": "complete",
           "bugs": [ 998246, 1002332 ]
         }
-      },
-      "getAnimations": {
-        "firefox": {
-          "status": "partial",
-          "note": "Animations on pseudo-elements are not returned",
-          "bugs": [ 1150810, 1174575 ]
-        }
       }
     }
   },
@@ -278,6 +271,13 @@
         "firefox": {
           "status": "complete",
           "bugs": [ 998246, 1002332, 1036300, 1105098 ]
+        }
+      },
+      "getAnimations": {
+        "firefox": {
+          "status": "partial",
+          "note": "Animations on pseudo-elements are not returned",
+          "bugs": [ 1150810, 1174575, 1212720 ]
         }
       }
     }
