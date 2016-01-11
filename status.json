@@ -30,6 +30,7 @@
       },
       "id": {
         "firefox": {
+          "status": "complele",
           "bugs": [ 1179627 ]
         }
       },
