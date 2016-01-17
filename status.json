@@ -135,6 +135,7 @@
     "members": {
       "timing": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1214536 ]
         }
       },
