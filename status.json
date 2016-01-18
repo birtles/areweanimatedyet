@@ -24,6 +24,7 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
+        "status": "complete",
         "firefox": {
           "bugs": [ 1096774 ]
         }
