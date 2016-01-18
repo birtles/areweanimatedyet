@@ -152,20 +152,44 @@
     "type": "interface",
     "members": {
       "delay": {
+        "firefox": {
+          "status": "complete"
+        }
       },
       "endDelay": {
+        "firefox": {
+          "status": "complete"
+        }
       },
       "fill": {
+        "firefox": {
+          "status": "complete"
+        }
       },
       "iterationStart": {
+        "firefox": {
+          "status": "complete"
+        }
       },
       "iterations": {
+        "firefox": {
+          "status": "complete"
+        }
       },
       "duration": {
+        "firefox": {
+          "status": "complete"
+        }
       },
       "direction": {
+        "firefox": {
+          "status": "complete"
+        }
       },
       "easing": {
+        "firefox": {
+          "status": "complete"
+        }
       }
     }
   },
