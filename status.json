@@ -25,8 +25,8 @@
     "members": {
       "[Constructor]": {
         "firefox": {
-          "status": "complete",
-          "bugs": [ 1096774 ]
+          "status": "partial",
+          "bugs": [ 1096774, 1049975, 1096776 ]
         }
       },
       "id": {
