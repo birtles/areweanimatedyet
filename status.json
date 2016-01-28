@@ -279,7 +279,7 @@
     "members": {
       "animate": {
         "firefox": {
-          "bugs": [ 1096773, 1151731 ]
+          "bugs": [ 1096773, 1151731, 1241784 ]
         }
       },
       "getAnimations": {
