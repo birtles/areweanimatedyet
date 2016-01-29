@@ -279,7 +279,9 @@
     "members": {
       "animate": {
         "firefox": {
-          "bugs": [ 1096773, 1151731, 1241784 ]
+          "status": "partial",
+          "note": "No support for single-valued property value lists, or additive/cumulative animation",
+          "bugs": [ 1096773, 1241784, 1216842, 1216843, 1216844 ]
         }
       },
       "getAnimations": {
