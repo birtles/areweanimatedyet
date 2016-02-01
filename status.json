@@ -264,12 +264,24 @@
         }
       },
       "iterationComposite": {
+        "firefox": {
+          "bugs": [ 1216843 ]
+        }
       },
       "composite": {
+        "firefox": {
+          "bugs": [ 1216844 ]
+        }
       },
       "spacing": {
+        "firefox": {
+          "bug": [ 1244590 ]
+        }
       },
       "setFrames": {
+        "firefox": {
+          "bugs": [ 1244591 ]
+        }
       }
     }
   },
