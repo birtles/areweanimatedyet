@@ -275,7 +275,7 @@
       },
       "spacing": {
         "firefox": {
-          "bug": [ 1244590 ]
+          "bugs": [ 1244590 ]
         }
       },
       "setFrames": {
