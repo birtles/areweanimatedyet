@@ -200,28 +200,44 @@
     "type": "interface",
     "members": {
       "delay": {
-        "bugs": [1244633]
+        "firefox": {
+          "bugs": [ 1244633 ]
+        }
       },
       "endDelay": {
-        "bugs": [1244635]
+        "firefox": {
+          "bugs": [ 1244635 ]
+        }
       },
       "fill": {
-        "bugs": [1244637]
+        "firefox": {
+          "bugs": [ 1244637 ]
+        }
       },
       "iterationStart": {
-        "bugs": [1244638]
+        "firefox": {
+          "bugs": [ 1244638 ]
+        }
       },
       "iterations": {
-        "bugs": [1244640]
+        "firefox": {
+          "bugs": [ 1244640 ]
+        }
       },
       "duration": {
-        "bugs": [1244641]
+        "firefox": {
+          "bugs": [ 1244641 ]
+        }
       },
       "direction": {
-        "bugs": [1244642]
+        "firefox": {
+          "bugs": [ 1244642 ]
+        }
       },
       "easing": {
-        "bugs": [1244643]
+        "firefox": {
+          "bugs": [ 1244643 ]
+        }
       }
     }
   },
