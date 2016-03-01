@@ -226,6 +226,7 @@
       },
       "duration": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1244641 ]
         }
       },
