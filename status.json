@@ -342,7 +342,7 @@
       },
       "getAnimations": {
         "firefox": {
-          "status": "partial",
+          "status": "complete",
           "bugs": [ 1150810, 1174575, 1212720, 1234403 ]
         }
       }
