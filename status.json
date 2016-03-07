@@ -280,6 +280,7 @@
     "members": {
       "[Constructor]": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1211783, 1198705, 1244586 ]
         }
       },
