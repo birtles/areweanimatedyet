@@ -206,6 +206,7 @@
       },
       "endDelay": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1244635 ]
         }
       },
