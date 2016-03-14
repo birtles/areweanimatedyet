@@ -217,7 +217,8 @@
       },
       "iterationStart": {
         "firefox": {
-          "status": "complete"
+          "status": "complete",
+          "bugs": [ 1244638 ]
         }
       },
       "iterations": {
