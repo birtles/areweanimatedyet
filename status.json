@@ -223,6 +223,7 @@
       },
       "iterations": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1244640 ]
         }
       },
@@ -234,6 +235,7 @@
       },
       "direction": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1244642 ]
         }
       },
