@@ -201,6 +201,7 @@
     "members": {
       "delay": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1244633 ]
         }
       },
