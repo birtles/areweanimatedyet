@@ -242,6 +242,7 @@
       },
       "easing": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1244643 ]
         }
       }
