@@ -213,6 +213,7 @@
       },
       "fill": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1244637 ]
         }
       },
@@ -274,7 +275,7 @@
       },
       "getFrames": {
         "firefox": {
-          "status": "partial",
+          "status": "complete",
           "bugs": [ 1198708, 1217252, 1217256 ]
         }
       }
