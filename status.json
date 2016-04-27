@@ -16,6 +16,9 @@
     "type": "interface",
     "members": {
       "[Constructor]": {
+        "firefox": {
+          "bugs": [ 1267510 ]
+        }
       }
     }
   },
