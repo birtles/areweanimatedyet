@@ -296,6 +296,7 @@
       },
       "target": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1067769 ]
         }
       },
