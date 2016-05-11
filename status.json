@@ -276,10 +276,11 @@
       },
       "clone": {
       },
-      "getFrames": {
+      "getKeyframes": {
         "firefox": {
-          "status": "complete",
-          "bugs": [ 1198708, 1217252, 1217256 ]
+          "status": "partial",
+          "note": "Need to rename getFrames() to getKeyframes()",
+          "bugs": [ 1198708, 1217252, 1217256, 1271904 ]
         }
       }
     }
@@ -317,8 +318,9 @@
       },
       "setFrames": {
         "firefox": {
-          "status": "complete",
-          "bugs": [ 1244591 ]
+          "status": "partial",
+          "note": "Need to rename setFrames() to setKeyframes()",
+          "bugs": [ 1244591, 1271904 ]
         }
       }
     }
