@@ -316,7 +316,7 @@
           "bugs": [ 1244590 ]
         }
       },
-      "setFrames": {
+      "setKeyframes": {
         "firefox": {
           "status": "partial",
           "note": "Need to rename setFrames() to setKeyframes()",
