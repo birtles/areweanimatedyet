@@ -278,8 +278,7 @@
       },
       "getKeyframes": {
         "firefox": {
-          "status": "partial",
-          "note": "Need to rename getFrames() to getKeyframes()",
+          "status": "complete",
           "bugs": [ 1198708, 1217252, 1217256, 1271904 ]
         }
       }
@@ -318,8 +317,7 @@
       },
       "setKeyframes": {
         "firefox": {
-          "status": "partial",
-          "note": "Need to rename setFrames() to setKeyframes()",
+          "status": "complete",
           "bugs": [ 1244591, 1271904 ]
         }
       }
