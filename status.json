@@ -29,8 +29,8 @@
       "[Constructor]": {
         "firefox": {
           "status": "partial",
-          "note": "null/default values for the timeline are not yet supported",
-          "bugs": [ 1096774, 1049975, 1096776, 1272211, 1273784 ]
+          "note": "null/default values for the timeline parameter and null values for the effect parameter are not yet supported",
+          "bugs": [ 1096774, 1049975, 1096776, 1272211 ]
         }
       },
       "id": {
