@@ -29,8 +29,8 @@
       "[Constructor]": {
         "firefox": {
           "status": "partial",
-          "note": "null values for the effect or timeline parameters are not yet supported",
-          "bugs": [ 1096774, 1049975, 1096776 ]
+          "note": "null/default values for the timeline are not yet supported",
+          "bugs": [ 1096774, 1049975, 1096776, 1272211, 1273784 ]
         }
       },
       "id": {
@@ -259,7 +259,8 @@
       "[Constructor]": {
         "firefox": {
           "status": "partial",
-          "bugs": [ 1208951, 1215406, 1216842, 1216843, 1216844 ]
+          "note": "Copy constructor not yet supported",
+          "bugs": [ 1208951, 1215406, 1216842, 1216843, 1216844, 1273784 ]
         }
       },
       "target": {
@@ -273,8 +274,6 @@
       "composite": {
       },
       "spacing": {
-      },
-      "clone": {
       },
       "getKeyframes": {
         "firefox": {
@@ -290,8 +289,9 @@
     "members": {
       "[Constructor]": {
         "firefox": {
-          "status": "complete",
-          "bugs": [ 1211783, 1198705, 1244586 ]
+          "status": "partial",
+          "note": "Copy constructor not yet supported",
+          "bugs": [ 1211783, 1198705, 1244586, 1216843, 1216844, 1273784 ]
         }
       },
       "target": {
