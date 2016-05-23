@@ -274,6 +274,9 @@
       "composite": {
       },
       "spacing": {
+        "firefox": {
+          "bugs": [ 1244590 ]
+        }
       },
       "getKeyframes": {
         "firefox": {
@@ -312,7 +315,7 @@
       },
       "spacing": {
         "firefox": {
-          "bugs": [ 1244590 ]
+          "bugs": [ 1274944 ]
         }
       },
       "setKeyframes": {
