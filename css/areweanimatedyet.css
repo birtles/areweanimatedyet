@@ -4,9 +4,11 @@ body {
 }
 
 .interface-container {
-  -moz-column-width: 360px;
-  -webkit-column-width: 360px;
-  column-width: 360px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
 }
 
 .interface-container a {

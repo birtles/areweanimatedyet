@@ -15,6 +15,12 @@ $.getJSON('status.json').then(function(interfaces) {
     });
   });
 
+  // Sort by number of members so that smaller items clump together and use the
+  // space more efficiently.
+  interfaces.sort(function(a, b) {
+    return a.members.length < b.members.length;
+  });
+
   React.render(
     React.createElement(InterfaceContainer, {interfaces: interfaces}),
     document.getElementById('interfaces')
