@@ -49,7 +49,6 @@
       "timeline": {
         "firefox": {
           "status": "partial",
-          "note": "readonly",
           "bugs": [ 1096776, 1178662, 1178666 ]
         }
       },
