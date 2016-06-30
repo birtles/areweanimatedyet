@@ -17,6 +17,7 @@
     "members": {
       "[Constructor]": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1267510 ]
         }
       }
@@ -274,6 +275,7 @@
       },
       "spacing": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1244590 ]
         }
       },
