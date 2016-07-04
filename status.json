@@ -49,8 +49,8 @@
       },
       "timeline": {
         "firefox": {
-          "status": "partial",
-          "bugs": [ 1096776, 1178662, 1178666 ]
+          "status": "complete",
+          "bugs": [ 1096776, 1178662]
         }
       },
       "startTime": {
