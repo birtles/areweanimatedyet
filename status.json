@@ -29,8 +29,7 @@
     "members": {
       "[Constructor]": {
         "firefox": {
-          "status": "partial",
-          "note": "null values for the effect parameter are not yet supported",
+          "status": "complete",
           "bugs": [ 1096774, 1049975, 1096776, 1272211 ]
         }
       },
@@ -42,8 +41,7 @@
       },
       "effect": {
         "firefox": {
-          "status": "partial",
-          "note": "readonly",
+          "status": "complete",
           "bugs": [ 1049975 ]
         }
       },
