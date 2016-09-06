@@ -314,6 +314,7 @@
       },
       "spacing": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1274944 ]
         }
       },
