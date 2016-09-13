@@ -304,6 +304,7 @@
       },
       "iterationComposite": {
         "firefox": {
+          "status": "complete",
           "bugs": [ 1216843 ]
         }
       },
