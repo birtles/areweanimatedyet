@@ -257,7 +257,7 @@
       "[Constructor]": {
         "firefox": {
           "status": "partial",
-          "bugs": [ 1208951, 1215406, 1216842, 1216843, 1216844, 1273784 ]
+          "bugs": [ 1208951, 1215406, 1216842, 1216843, 1273784, 1311620 ]
         }
       },
       "target": {
@@ -296,7 +296,7 @@
         "firefox": {
           "status": "partial",
           "note": "Copy constructor not yet supported",
-          "bugs": [ 1211783, 1198705, 1244586, 1216843, 1216844, 1273784 ]
+          "bugs": [ 1211783, 1198705, 1244586, 1216843, 1273784, 1311620 ]
         }
       },
       "target": {
@@ -338,7 +338,7 @@
         "firefox": {
           "status": "partial",
           "note": "No support for single-valued property value lists, or additive/cumulative animation",
-          "bugs": [ 1096773, 1241784, 1216842, 1216843, 1216844 ]
+          "bugs": [ 1096773, 1241784, 1216842, 1216843, 1311620 ]
         }
       },
       "getAnimations": {
