@@ -295,7 +295,6 @@
       "[Constructor]": {
         "firefox": {
           "status": "partial",
-          "note": "Copy constructor not yet supported",
           "bugs": [ 1211783, 1198705, 1244586, 1216843, 1273784, 1311620 ]
         }
       },
