@@ -360,7 +360,7 @@
           "status": "complete",
           "bugs": [ 998246, 1002332, 1036300, 1105098 ]
         }
-      }
+      },
       "getAnimations": {
         "firefox": {
           "status": "complete",
