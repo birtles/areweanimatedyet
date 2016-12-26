@@ -273,8 +273,10 @@
         }
       },
       "composite": {
+        "firefox": {
           "status": "complete",
           "bugs": [ 1216844 ]
+        }
       },
       "spacing": {
         "firefox": {
